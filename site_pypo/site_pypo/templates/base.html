@@ -1,9 +1,13 @@
 {% load static wagtailuserbar %}
 
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="fr">
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="Le site de PYPO Production" />
+        <meta name="author" content="Flavien MURAIL" />
+        <link rel="icon" type="image/png" href="{% static 'img/icon-pypo.png' %}"/>
         <title>
             {% block title %}
                 {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
@@ -14,11 +18,11 @@
                 {% endwith %}
             {% endblock %}
         </title>
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        
 
         {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/site_pypo.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
