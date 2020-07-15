@@ -4,9 +4,10 @@ __pycache__/
 # C extensions
 *.so
 
-# Django stuff:
+# Django stuff & migrations
 local_settings.py
 db.sqlite3
+**/migrations/
 
 # Environments
 .env
