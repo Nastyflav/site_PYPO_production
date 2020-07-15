@@ -1,5 +1,5 @@
 # For developpers, how to install and work on the app :
-Clone with https : https://github.com/Nastyflav/P13-Site-Pypo-Production.git\
+Clone with https : https://github.com/Nastyflav/P13-Site-Pypo-Production.git \
 or clone with SSH : git@github.com:Nastyflav/P13-Site-Pypo-Production.git\
 into a repo on your local machine\
 Documentation about pull --> https://help.github.com/en/articles/cloning-a-repository
@@ -16,7 +16,7 @@ To launch tests `python manage.py test`
 
 # Dependancies :
 Python 3.8.2
-download : https://www.python.org/downloads/\
+download : https://www.python.org/downloads/ \
 install : https://realpython.com/installing-python/
 
 Depending of your python's install, you might need PIP\
