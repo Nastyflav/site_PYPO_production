@@ -23,18 +23,35 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="img/logo-pypo.jpg" alt="" /></a>
+                <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{% static 'img/logo-pypo.jpg' %}" alt="" /></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ml-1"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Artistes</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link js-scroll-trigger dropdown-toggle" href="#services" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Artistes</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Artiste 1</a>
+                                    <a class="dropdown-item" href="#">Artiste 2</a>
+                                    <a class="dropdown-item" href="#">Artiste 3</a>
+                                </div></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Agenda</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Evenements</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link js-scroll-trigger dropdown-toggle" href="#services" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Evenements</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Event 1</a>
+                                    <a class="dropdown-item" href="#">Event 2</a>
+                                    <a class="dropdown-item" href="#">Event 3</a>
+                                </div></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Pypo</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link js-scroll-trigger dropdown-toggle" href="#services" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pypo</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Asso</a>
+                                    <a class="dropdown-item" href="#">Team</a>
+                                </div></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
                     </ul>
                 </div>
