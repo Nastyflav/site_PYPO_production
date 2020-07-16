@@ -1,3 +1,8 @@
-from django.db import models
+#! /usr/bin/env python3
+# coding: utf-8
 
-# Create your models here.
+"""
+Author: [Nastyflav](https://github.com/Nastyflav) 2020-07-16
+Licence: `GNU GPL v3` GNU GPL v3: http://www.gnu.org/licenses/
+
+"""
