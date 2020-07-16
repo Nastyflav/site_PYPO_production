@@ -8,37 +8,72 @@
         <meta name="description" content="Le site de PYPO Production" />
         <meta name="author" content="Flavien MURAIL" />
         <link rel="icon" type="image/png" href="{% static 'img/icon-pypo.png' %}"/>
-        <title>
-            {% block title %}
-                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
-            {% endblock %}
-            {% block title_suffix %}
-                {% with self.get_site.site_name as site_name %}
-                    {% if site_name %}- {{ site_name }}{% endif %}
-                {% endwith %}
-            {% endblock %}
-        </title>
-        
-        
-
+        <title>PYPO Production</title>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-
-        {% block extra_css %}
-            {# Override this in templates to add extra stylesheets #}
-        {% endblock %}
     </head>
 
-    <body class="{% block body_class %}{% endblock %}">
-        {% wagtailuserbar %}
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="img/logo-pypo.jpg" alt="" /></a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ml-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Artistes</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Agenda</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Evenements</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Pypo</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Welcome To Our Studio!</div>
+                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+            </div>
+        </header>
 
         {% block content %}{% endblock %}
-
-        {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/site_pypo.js' %}"></script>
-
-        {% block extra_js %}
-            {# Override this in templates to add extra javascript #}
-        {% endblock %}
+        
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-left">Copyright © PYPO Production 2020</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/PYPOproduction"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-right">
+                        <a href="#!">Mentions légales</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Contact form JS-->
+        <script src="{% static 'js/form_validation.js' %"></script>
+        <script src="{% static 'js/contact.js' %"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'js/scripts.js' %}"></script>
     </body>
 </html>
