@@ -9,7 +9,7 @@
 
     <div class="intro">{{ page.intro|richtext }}</div>
 
-    {% for post in blogpages %}
+    {% for post in blog_pages %}
     {% with post=post.specific %}
         <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
 

@@ -5,6 +5,16 @@
 {% block body_class %}template-artistpage{% endblock %}
 
 {% block content %}
+
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-subheading">Welcome To Our Studio!</div>
+            <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+        </div>
+    </header>
+    
     <h1>{{ page.title }}</h1>
 
     <div class="intro">{{ page.style}}</div>
@@ -14,7 +24,6 @@
     {% for item in page.gallery_images.all %}
         <div style="float: left; margin: 10px">
             {% image item.image fill-320x240 %}
-            <p>{{ item.caption }}</p>
         </div>
     {% endfor %}
 

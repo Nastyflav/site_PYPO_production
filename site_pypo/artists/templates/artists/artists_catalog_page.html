@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-artistcatalogpage{% endblock %}
+
+{% block content %}
+    <h1>{{ page.title }}</h1>
+
+    <div class="intro">{{ page.intro|richtext }}</div>
+
+    {% for artist in artists_pages %}
+    {% with artist=artist.specific %}
+        <h2><a href="{% pageurl artist %}">{{ artist.title }}</a></h2>
+
+        {% with artist.main_image as main_image %}
+            {% if main_image %}{% image main_image fill-160x100 %}{% endif %}
+        {% endwith %}
+
+        <p>{{ artist.style }}</p>
+    {% endwith %}
+{% endfor %}
+
+{% endblock %}

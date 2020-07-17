@@ -36,9 +36,9 @@ class ArtistPage(Page):
     """All the fields to complete when editing an artist page"""
     style = models.CharField(max_length=100)
     body = RichTextField(blank=True)
-    facebook = models.URLField(max_length=300, unique=True, null=True, verbose_name='fb_URL')
-    instagram = models.URLField(max_length=300, unique=True, null=True, verbose_name='insta_URL')
-    twitter = models.URLField(max_length=300, unique=True, null=True, verbose_name='twt_URL')
+    facebook = models.URLField(max_length=300, unique=True, null=True, verbose_name='Lien Facebook')
+    instagram = models.URLField(max_length=300, unique=True, null=True, verbose_name='Lien Instagram')
+    twitter = models.URLField(max_length=300, unique=True, null=True, verbose_name='Lien Twitter')
 
     def main_image(self):
         """Print the artist image on top of the page"""
@@ -56,6 +56,9 @@ class ArtistPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('style'),
         FieldPanel('body'),
+        FieldPanel('facebook'),
+        FieldPanel('instagram'),
+        FieldPanel('twitter'),
         InlinePanel('gallery_images', label="Gallery images"),
     ]
 
