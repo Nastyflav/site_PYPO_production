@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-artistpage{% endblock %}
+
+{% block content %}
+    <h1>{{ page.title }}</h1>
+
+    <div class="intro">{{ page.style}}</div>
+
+    {{ page.body|richtext }}
+
+    {% for item in page.gallery_images.all %}
+        <div style="float: left; margin: 10px">
+            {% image item.image fill-320x240 %}
+            <p>{{ item.caption }}</p>
+        </div>
+    {% endfor %}
+
+    <p><a href="{{ page.get_parent.url }}">Retour aux artistes</a></p>
+
+
+{% endblock %}

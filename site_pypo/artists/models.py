@@ -28,14 +28,13 @@ class ArtistsCatalogPage(Page):
         """Update context to include only published artists, randomly ordered"""
         context = super().get_context(request)
         artists_pages = self.get_children().live().order_by('?')
-        context['artists_pages'] = artistes_pages
+        context['artists_pages'] = artists_pages
         return context
 
 
 class ArtistPage(Page):
     """All the fields to complete when editing an artist page"""
-    name = models.DateField("Post date")
-    style = models.CharField(max_length=250)
+    style = models.CharField(max_length=100)
     body = RichTextField(blank=True)
 
     def main_image(self):
@@ -47,13 +46,11 @@ class ArtistPage(Page):
             return None
 
     search_fields = Page.search_fields + [
-        index.SearchField('name'),
         index.SearchField('style'),
         index.SearchField('body'),
     ]
 
     content_panels = Page.content_panels + [
-        FieldPanel('name'),
         FieldPanel('style'),
         FieldPanel('body'),
         InlinePanel('gallery_images', label="Gallery images"),
