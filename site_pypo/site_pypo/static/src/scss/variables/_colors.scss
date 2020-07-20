@@ -1,10 +1,14 @@
 // Override Bootstrap color system
 
-$yellow: #fed136;
+$yellow: #ffa300;
+$grey: #6c6869;
+$black: black;
 
 // Override Bootstrap default state colors
 
 $primary: $yellow;
+$secondary: $grey;
+$text: $black;
 
 // Override Bootstrap yiq lightness value
 
