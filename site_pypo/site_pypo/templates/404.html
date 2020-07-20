@@ -1,9 +1,18 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block body_class %}template-404{% endblock %}
 
 {% block content %}
-    <h1>Page not found</h1>
 
-    <h2>Sorry, this page could not be found.</h2>
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container">
+        <div class="masthead-heading text-uppercase">ERREUR 404</div>
+        <i class="far fa-sad-cry fa-9x"></i></a>
+        <br>
+        <br>
+        <div class="masthead-subheading">Page non trouvée </div>
+</header>
+
 {% endblock %}
