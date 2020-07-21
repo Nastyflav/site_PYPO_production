@@ -33,7 +33,7 @@ class TermsPage(Page):
     maker = RichTextField(verbose_name='Conception')
     graphism = RichTextField(verbose_name='Graphisme')
     cnil = RichTextField(verbose_name='CNIL')
-    _copyright = RichTextField(verbose_name='Propriété intellectuelle')
+    rights = RichTextField(verbose_name='Propriété intellectuelle')
 
     content_panels = Page.content_panels + [
         MultiFieldPanel([
@@ -46,7 +46,7 @@ class TermsPage(Page):
         ], heading="Informations générales"),
         MultiFieldPanel([
             FieldPanel('cnil'),
-            FieldPanel('_copyright'),
+            FieldPanel('rights'),
         ], heading="Informatique et liberté"),
     ]
 

@@ -1,11 +1,53 @@
 {% extends "base.html" %}
-{% load static %}
+
+{% load static wagtailcore_tags %}
 
 {% block body_class %}template-termspage{% endblock %}
 
-
 {% block content %}
 
-
+<!-- Services-->
+<section class="page-section" id="services">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">{{ page.title }}</h2>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h4 class="my-3 text-left">Editeur :</h4>
+                <div class="text-left">{{ page.editor|richtext }}</div>
+            </div>
+            <div class="col-md-12">
+                <h4 class="my-3 text-left">Hébergeur :</h4>
+                <div class="text-left">{{ page.host|richtext }}</div>
+            </div>
+            <div class="col-md-12">
+                <h4 class="my-3 text-left">Crédits photos :</h4>
+                <div class="text-left">{{ page.photo_credits|richtext }}</div>
+            </div>
+            <div class="col-md-12">
+                <h4 class="my-3 text-left">Exploitant :</h4>
+                <div class="text-left">{{ page.pypo|richtext }}</div>
+            </div>
+            <div class="col-md-12">
+                <h4 class="my-3 text-left">Conception :</h4>
+                <div class="text-left">{{ page.maker|richtext }}</div>
+            </div>
+            <div class="col-md-12">
+                <h4 class="my-3 text-left">Graphisme :</h4>
+                <div class="text-left">{{ page.graphism|richtext }}</div>
+            </div>
+            <div class="col-md-12">
+                <h4 class="my-3 text-left">Informations relatives à la protection des données :</h4>
+                <div class="text-left">{{ page.cnil|richtext }}</div>
+            </div>
+            <div class="col-md-12">
+                <h4 class="my-3 text-left">Propriété intellectuelle :</h4>
+                <div class="text-left">{{ page.rights|richtext }}</div>
+            </div>
+            
+        </div>
+    </div>
+</section>
 
 {% endblock content %}
