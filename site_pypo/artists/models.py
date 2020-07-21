@@ -22,6 +22,9 @@ from wagtail.search import index
 
 class ArtistsCatalogPage(Page):
     """Model of the artistes catalog"""
+    subpage_types = ['ArtistPage']
+    parent_page_types = ['home.HomePage']
+
     intro = RichTextField(blank=True)
 
     def get_context(self, request):
@@ -34,8 +37,11 @@ class ArtistsCatalogPage(Page):
 
 class ArtistPage(Page):
     """All the fields to complete when editing an artist page"""
-    style = models.CharField(max_length=100)
-    body = RichTextField(blank=True)
+    subpage_types = []
+    parent_page_types = ['ArtistsCatalogPage']
+
+    style = models.CharField(max_length=100, verbose_name='Style')
+    body = RichTextField(blank=True, verbose_name='Biographie')
     facebook = models.URLField(max_length=300, unique=True, null=True, verbose_name='Lien Facebook')
     instagram = models.URLField(max_length=300, unique=True, null=True, verbose_name='Lien Instagram')
     twitter = models.URLField(max_length=300, unique=True, null=True, verbose_name='Lien Twitter')
