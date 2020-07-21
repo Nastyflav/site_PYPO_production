@@ -53,3 +53,34 @@ class TermsPage(Page):
         ], heading="Informatique et liberté"),
     ]
 
+
+class AssociationPage(Page):
+    """Model of the association introducing page"""
+    subpage_types = []
+    parent_page_types = ['home.HomePage']
+
+    body = RichTextField(verbose_name='Historique')
+
+    def main_image(self):
+        """Print the introducing image on top of the page"""
+        gallery_item = self.gallery_images.first()
+        if gallery_item:
+            return gallery_item.image
+        else:
+            return None
+
+    content_panels = Page.content_panels + [
+        FieldPanel('body'),
+    ]
+
+
+class AssociationPageGalleryImage(Orderable):
+    """Allows to integrate one image into the introducing page"""
+    page = ParentalKey(AssociationPage, on_delete=models.CASCADE, related_name='gallery_images')
+    image = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+    )
+
+    panels = [
+        ImageChooserPanel('image'),
+    ]

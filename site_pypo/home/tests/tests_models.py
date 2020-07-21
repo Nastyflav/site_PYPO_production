@@ -10,7 +10,7 @@ Licence: `GNU GPL v3` GNU GPL v3: http://www.gnu.org/licenses/
 from wagtail.tests.utils import WagtailPageTests
 from wagtail.tests.utils.form_data import nested_form_data, streamfield
 
-from home.models import HomePage, TermsPage
+from home.models import HomePage, TermsPage, AssociationPage
 
 
 class TestHomeModels(WagtailPageTests):
@@ -23,6 +23,12 @@ class TestHomeModels(WagtailPageTests):
         """Cannot create a page under BlogPage"""
         self.assertCanNotCreateAt(TermsPage, HomePage)
 
+    def test_cant_create_under_asso_page(self):
+        """Cannot create a page under BlogPage"""
+        self.assertCanNotCreateAt(AssociationPage, HomePage)
+
     def test_content_page_parent_pages(self):
         """TermsPage can only be created under a HomePage"""
         self.assertAllowedParentPageTypes(TermsPage, {HomePage})
+        """AssoPage can only be created under a HomePage"""
+        self.assertAllowedParentPageTypes(AssociationPage, {HomePage})
