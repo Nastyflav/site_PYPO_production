@@ -22,6 +22,9 @@ from wagtail.search import index
 
 class BlogIndexPage(Page):
     """Model of the blog index"""
+    subpage_types = ['BlogPage']
+    parent_page_types = ['home.HomePage']
+
     intro = RichTextField(blank=True)
 
     def get_context(self, request):
@@ -55,6 +58,9 @@ class BlogTagIndexPage(Page):
 
 class BlogPage(Page):
     """All the fields to complete when editing a blog post"""
+    subpage_types = []
+    parent_page_types = ['BlogIndexPage']
+
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)

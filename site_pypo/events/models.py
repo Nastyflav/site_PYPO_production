@@ -22,6 +22,7 @@ from wagtail.search import index
 
 class EventsIndexPage(Page):
     """Model of the events catalog"""
+
     intro = RichTextField(blank=True)
 
     def get_context(self, request):
@@ -30,3 +31,4 @@ class EventsIndexPage(Page):
         events_pages = self.get_children().live().order_by('-first_published_at')
         context['events_pages'] = events_pages
         return context
+

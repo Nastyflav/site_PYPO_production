@@ -14,13 +14,13 @@ from blog.models import BlogIndexPage, BlogPage
 from home.models import HomePage
 
 
-class TestArtistsModels(WagtailPageTests):
+class TestBlogModels(WagtailPageTests):
     """To test the blog app models"""
-    def test_can_create_an_artist_page(self):
+    def test_can_create_a_blogt_page(self):
         """Can create a page under the BlogIndexPage"""
         self.assertCanCreateAt(BlogIndexPage, BlogPage)
 
-    def test_cant_create_under_artist_page(self):
+    def test_cant_create_under_blog_page(self):
         """Cannot create a page under BlogPage"""
         self.assertCanNotCreateAt(BlogPage, HomePage)
 

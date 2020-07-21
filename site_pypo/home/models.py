@@ -26,6 +26,9 @@ class HomePage(Page):
 
 class TermsPage(Page):
     """Model of the terms page"""
+    subpage_types = []
+    parent_page_types = ['home.HomePage']
+
     editor = RichTextField(verbose_name='Editeur')
     host = RichTextField(verbose_name='Hébergeur')
     photo_credits = RichTextField(verbose_name='Crédits photos')
