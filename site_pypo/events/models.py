@@ -22,6 +22,8 @@ from wagtail.search import index
 
 class EventsIndexPage(Page):
     """Model of the events catalog"""
+    subpage_types = ['EventPage']
+    parent_page_types = ['home.HomePage']
 
     intro = RichTextField(blank=True)
 
@@ -32,3 +34,42 @@ class EventsIndexPage(Page):
         context['events_pages'] = events_pages
         return context
 
+
+class EventPage(Page):
+    """All the fields to complete when editing an event page"""
+    subpage_types = []
+    parent_page_types = ['EventsIndexPage']
+
+    body = RichTextField(blank=True, verbose_name='Présentation')
+    links = RichTextField(blank=True, verbose_name='Liens')
+
+    def main_image(self):
+        """Print the artist image on top of the page"""
+        gallery_item = self.gallery_images.first()
+        if gallery_item:
+            return gallery_item.image
+        else:
+            return None
+
+    search_fields = Page.search_fields + [
+        index.SearchField('body'),
+        index.SearchField('links'),
+    ]
+
+    content_panels = Page.content_panels + [
+        FieldPanel('body'),
+        FieldPanel('links'),
+        InlinePanel('gallery_images', label="Gallery images"),
+    ]
+
+
+class EventPageGalleryImage(Orderable):
+    """Allows to integrate one image into an event page"""
+    page = ParentalKey(EventPage, on_delete=models.CASCADE, related_name='gallery_images')
+    image = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+    )
+
+    panels = [
+        ImageChooserPanel('image'),
+    ]
