@@ -51,8 +51,8 @@
             font-size: 1.5em;
             transition: font-size 0.3s ease-in-out;
             img {
-                height: 2rem;
-                transition: height 0.3s ease-in-out;
+                height: 4rem;
+                transition: height 0.5s ease-in-out;
             }
         }
         // Styling for when the navbar shrinks on larger screens
@@ -64,7 +64,7 @@
                 font-size: 1.25em;
                 svg,
                 img {
-                    height: 1.5rem;
+                    height: 3.5rem;
                 }
             }
         }
