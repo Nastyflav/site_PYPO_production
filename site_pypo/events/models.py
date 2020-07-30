@@ -34,6 +34,9 @@ class EventsIndexPage(Page):
         context['events_pages'] = events_pages
         return context
 
+    class Meta:
+        verbose_name = "Catalogue événements"
+
 
 class EventPage(Page):
     """All the fields to complete when editing an event page"""
@@ -61,6 +64,9 @@ class EventPage(Page):
         FieldPanel('links'),
         InlinePanel('gallery_images', label="Gallery images"),
     ]
+
+    class Meta:
+        verbose_name = "Evénement"
 
 
 class EventPageGalleryImage(Orderable):

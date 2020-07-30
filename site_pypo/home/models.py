@@ -21,7 +21,9 @@ from wagtail.search import index
 
 
 class HomePage(Page):
-    pass
+    
+    class Meta:
+        verbose_name = "Accueil"
 
 
 class TermsPage(Page):
@@ -73,6 +75,9 @@ class AssociationPage(Page):
         FieldPanel('body'),
     ]
 
+    class Meta:
+        verbose_name = "Association"
+
 
 class AssociationPageGalleryImage(Orderable):
     """Allows to integrate one image into the introducing page"""
@@ -94,6 +99,9 @@ class TeamPage(Page):
     content_panels = Page.content_panels + [
         InlinePanel('members', label="membre de l'équipe")
     ]
+
+    class Meta:
+        verbose_name = "Equipe"
 
 
 class TeamPageMembers(Orderable):

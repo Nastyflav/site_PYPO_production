@@ -34,6 +34,9 @@ class BlogIndexPage(Page):
         context['blog_pages'] = blog_pages
         return context
 
+    class Meta:
+        verbose_name = "Index blog"
+
 
 class BlogPageTag(TaggedItemBase):
     """Set the post tags"""
@@ -87,6 +90,9 @@ class BlogPage(Page):
         FieldPanel('body'),
         InlinePanel('gallery_images', label="Gallery images"),
     ]
+
+    class Meta:
+        verbose_name = "Billet blog"
 
 
 class BlogPageGalleryImage(Orderable):

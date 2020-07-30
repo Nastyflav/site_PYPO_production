@@ -34,6 +34,9 @@ class ArtistsCatalogPage(Page):
         context['artists_pages'] = artists_pages
         return context
 
+    class Meta:
+        verbose_name = "Catalogue artistes"
+
 
 class ArtistPage(Page):
     """All the fields to complete when editing an artist page"""
@@ -67,6 +70,9 @@ class ArtistPage(Page):
         FieldPanel('twitter'),
         InlinePanel('gallery_images', label="Gallery images"),
     ]
+
+    class Meta:
+        verbose_name = "Artiste"
 
 
 class ArtistPageGalleryImage(Orderable):
