@@ -29,7 +29,6 @@ INSTALLED_APPS = [
     'artists',
     'blog',
     'events',
-    'team',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',

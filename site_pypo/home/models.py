@@ -84,3 +84,35 @@ class AssociationPageGalleryImage(Orderable):
     panels = [
         ImageChooserPanel('image'),
     ]
+
+
+class TeamPage(Page):
+    """Create the models for the team page"""
+    subpage_types = []
+    parent_page_types = ['home.HomePage']
+
+    content_panels = Page.content_panels + [
+        InlinePanel('members', label="membre de l'équipe")
+    ]
+
+
+class TeamPageMembers(Orderable):
+    """To describe every team members"""
+    page = ParentalKey(TeamPage, on_delete=models.CASCADE, related_name="members")
+    firstname = models.CharField(max_length=50, verbose_name="Prénom")
+    lastname = models.CharField(max_length=50, verbose_name="Nom")
+    job = models.CharField(max_length=200, verbose_name="Poste")
+    phone = models.CharField(max_length=15, verbose_name="Numéro")
+    email = models.EmailField(verbose_name="Email")
+    image = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+    )
+
+    panels = [
+        FieldPanel('firstname'),
+        FieldPanel('lastname'),
+        FieldPanel('job'),
+        FieldPanel('phone'),
+        FieldPanel('email'),
+        ImageChooserPanel('image'),
+    ]

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load static wagtailcore_tags wagtailimages_tags %}
+{% load static wagtailcore_tags wagtailimages_tags wagtailembeds_tags %}
 
 {% block body_class %}template-artistpage{% endblock %}
 
@@ -20,6 +20,12 @@
     <div class="intro">{{ page.style}}</div>
 
     {{ page.body|richtext }}
+
+    <div class="col-lg-4 my-3 my-lg-0">
+        <a class="btn btn-light btn-social mx-2" href="{{ page.facebook }}"><i class="fab fa-facebook-f"></i></a>
+        <a class="btn btn-light btn-social mx-2" href="{{ page.instagram }}"><i class="fab fa-instagram"></i></a>
+        <a class="btn btn-light btn-social mx-2" href="{{ page.twitter }}"><i class="fab fa-twitter"></i></a>
+    </div>
 
     {% for item in page.gallery_images.all %}
         <div style="float: left; margin: 10px">
