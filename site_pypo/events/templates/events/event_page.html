@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-eventpage{% endblock %}
+
+{% block content %}
+
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container">
+            {% for item in page.gallery_images.all %}
+                <div style="float: left; margin: 10px">{% image item.image fill-320x240 %}</div>
+            {% endfor %}
+        </div>
+    </header>
+    
+    <h1>{{ page.title }}</h1>
+
+    <div class="intro">{{ page.links|richtext}}</div>
+
+    {{ page.body|richtext }}
+
+    <p><a href="{{ page.get_parent.url }}">Retour aux événements</a></p>
+
+
+{% endblock %}
