@@ -45,9 +45,6 @@ class ArtistPage(Page):
 
     style = models.CharField(max_length=100, verbose_name='Style')
     body = RichTextField(blank=True, verbose_name='Biographie')
-    facebook = models.URLField(max_length=300, unique=True, null=True, verbose_name='Lien Facebook')
-    instagram = models.URLField(max_length=300, unique=True, null=True, verbose_name='Lien Instagram')
-    twitter = models.URLField(max_length=300, unique=True, null=True, verbose_name='Lien Twitter')
 
     def main_image(self):
         """Print the artist image on top of the page"""
@@ -65,10 +62,10 @@ class ArtistPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('style'),
         FieldPanel('body'),
-        FieldPanel('facebook'),
-        FieldPanel('instagram'),
-        FieldPanel('twitter'),
         InlinePanel('gallery_images', label="Gallery images"),
+        InlinePanel('fb_link', label="Lien Facebook"),
+        InlinePanel('insta_link', label="Lien Instagram"),
+        InlinePanel('twitter_link', label="Lien Twitter"),
     ]
 
     class Meta:
@@ -84,4 +81,34 @@ class ArtistPageGalleryImage(Orderable):
 
     panels = [
         ImageChooserPanel('image'),
+    ]
+
+
+class ArtistPageFacebookLink(Orderable):
+    """Allows to integrate a Facebook link"""
+    page = ParentalKey(ArtistPage, on_delete=models.CASCADE, related_name="fb_link")
+    facebook = models.URLField(max_length=300, unique=True, null=True, verbose_name='Lien Facebook')
+
+    panels = [
+        FieldPanel('facebook'),
+    ]
+
+
+class ArtistPageInstagramLink(Orderable):
+    """Allows to integrate a Facebook link"""
+    page = ParentalKey(ArtistPage, on_delete=models.CASCADE, related_name="insta_link")
+    instagram = models.URLField(max_length=300, unique=True, null=True, verbose_name='Lien Instagram')
+
+    panels = [
+        FieldPanel('instagram'),
+    ]
+
+
+class ArtistPageTwitterLink(Orderable):
+    """Allows to integrate a Facebook link"""
+    page = ParentalKey(ArtistPage, on_delete=models.CASCADE, related_name="twitter_link")
+    twitter = models.URLField(max_length=300, unique=True, null=True, verbose_name='Lien Twitter')
+
+    panels = [
+        FieldPanel('twitter'),
     ]
