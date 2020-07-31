@@ -6,34 +6,43 @@
 
 {% block content %}
 
-    <!-- Masthead-->
-    <header class="masthead">
-        <div class="container">
-            <div class="masthead-subheading">Welcome To Our Studio!</div>
-            <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
-        </div>
-    </header>
-    
-    <h1>{{ page.title }}</h1>
-
-    <div class="intro">{{ page.style}}</div>
-
-    {{ page.body|richtext }}
-
-    <div class="col-lg-4 my-3 my-lg-0">
-        <a class="btn btn-light btn-social mx-2" href="{{ page.facebook }}"><i class="fab fa-facebook-f"></i></a>
-        <a class="btn btn-light btn-social mx-2" href="{{ page.instagram }}"><i class="fab fa-instagram"></i></a>
-        <a class="btn btn-light btn-social mx-2" href="{{ page.twitter }}"><i class="fab fa-twitter"></i></a>
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container">
     </div>
+</header>
+
+<section>
+    <div class="container">
+        <h1>{{ page.title }}</h1>
+        <div class="intro">{{ page.style}}</div>
+        {{ page.body|richtext }}
+        <div class="col-lg-4 my-3 my-lg-0">
+            {% for link in page.fb_link.all %}
+                <a class="btn btn-light btn-social mx-2" href="{{ link.facebook }}"><i class="fab fa-facebook-f"></i></a>
+            {% endfor %}
+            {% for link in page.insta_link.all %}
+                <a class="btn btn-light btn-social mx-2" href="{{ link.instagram }}"><i class="fab fa-instagram"></i></a>
+            {% endfor %}
+            {% for link in page.twitter_link.all %}
+                <a class="btn btn-light btn-social mx-2" href="{{ link.twitter }}"><i class="fab fa-twitter"></i></a>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-lg-11 text-right">
+                <p><a href="{{ page.get_parent.url }}">Retour aux artistes</a></p>
+            </div>
+        </div>
+    </div>
+</section>
 
     {% for item in page.gallery_images.all %}
         <div style="float: left; margin: 10px">
             {% image item.image fill-320x240 %}
         </div>
     {% endfor %}
-
-    <p><a href="{{ page.get_parent.url }}">Retour aux artistes</a></p>
+    
+    
 
 
 {% endblock %}
