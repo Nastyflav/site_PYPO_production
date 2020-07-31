@@ -17,22 +17,20 @@
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">{{ page.title }}</h2>
-
+            <br>
+            <hr>
+            <br>
         </div>
         <div class="row">
-            {% for member in team_pages %}
-            {% with member=member.specific %}
+            {% for member in page.members.all %}
             <div class="col-lg-4">
                 <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="" />
-                    <h4>{{ member.firstname }}</h4>
-                    <p class="text-muted">Lead Designer</p>
-                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                    <h4>{{ member.firstname }} {{ member.lastname }}</h4>
+                    <p class="text-muted">{{ member.job }}</p>
+                    <a class="text">{{ member.phone }}</a><br>
+                    <a class="text" href="{{ member.email }}">{{ member.email }}</a>
                 </div>
             </div>
-            {% endwith %}
             {% endfor %}
         </div>
     </div>
