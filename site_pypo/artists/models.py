@@ -66,6 +66,7 @@ class ArtistPage(Page):
         InlinePanel('fb_link', label="Lien Facebook"),
         InlinePanel('insta_link', label="Lien Instagram"),
         InlinePanel('twitter_link', label="Lien Twitter"),
+        InlinePanel('gigs', label="Concerts")
     ]
 
     class Meta:
@@ -111,4 +112,20 @@ class ArtistPageTwitterLink(Orderable):
 
     panels = [
         FieldPanel('twitter'),
+    ]
+
+
+class ArtistPageGigs(Orderable):
+    """To add every gigs into the artist agenda"""
+    page = ParentalKey(ArtistPage, on_delete=models.CASCADE, related_name="gigs")
+    date = models.DateField(null=True, verbose_name="Date")
+    city = models.CharField(max_length=100, null=True, verbose_name="Ville")
+    location = models.CharField(max_length=300, null=True, verbose_name="Lieu")
+    link = models.URLField(max_length=300, unique=True, null=True, verbose_name='Lien événement')
+
+    panels = [
+        FieldPanel('date'),
+        FieldPanel('city'),
+        FieldPanel('location'),
+        FieldPanel('link'),
     ]

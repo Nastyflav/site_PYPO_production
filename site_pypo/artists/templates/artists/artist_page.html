@@ -15,7 +15,7 @@
 <section>
     <div class="container">
         <h1>{{ page.title }}</h1>
-        <div class="intro">{{ page.style}}</div>
+        <h5 class="section-subheading text-muted">{{ page.style}}</h5>
         {{ page.body|richtext }}
         <div class="col-lg-4 my-3 my-lg-0">
             {% for link in page.fb_link.all %}

@@ -10006,6 +10006,11 @@ p {
   line-height: 1.75;
 }
 
+.text-right {
+  line-height: 1.75;
+  text-align: right;
+}
+
 .link {
   color: #6c6869;
 }
