@@ -7,6 +7,8 @@ Licence: `GNU GPL v3` GNU GPL v3: http://www.gnu.org/licenses/
 
 """
 
+from django.test import TestCase
+
 from wagtail.tests.utils import WagtailPageTests
 from wagtail.tests.utils.form_data import nested_form_data, streamfield
 
@@ -14,7 +16,7 @@ from artists.models import ArtistPage, ArtistsCatalogPage, ArtistPageGalleryImag
 from home.models import HomePage
 
 
-class TestArtistsModels(WagtailPageTests):
+class TestArtistsPages(WagtailPageTests):
     """To test the artists app models"""
     def test_can_create_an_artist_page(self):
         """Can create a page under the Artist Catalog Page"""

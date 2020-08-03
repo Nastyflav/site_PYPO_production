@@ -7,15 +7,16 @@ Licence: `GNU GPL v3` GNU GPL v3: http://www.gnu.org/licenses/
 
 """
 
+from django.test import TestCase 
+
 from wagtail.tests.utils import WagtailPageTests
-from wagtail.tests.utils.form_data import nested_form_data, streamfield
 
 from events.models import EventsIndexPage, EventPage
 from home.models import HomePage
 
 
 class TestEventsModels(WagtailPageTests):
-    """To test the artists app models"""
+    """To test the events pages arborescence"""
     def test_can_create_an_event_page(self):
         """Can create a page under the EventsIndexPage"""
         self.assertCanCreateAt(EventsIndexPage, EventPage)
