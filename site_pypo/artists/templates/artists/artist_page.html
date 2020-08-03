@@ -6,6 +6,11 @@
 
 {% block content %}
 
+    {% for block in page.content %}
+        {# Loop through every streamfield and include the rendered template files to your page. #}
+        {% include_block block %}
+    {% endfor %}
+
 <!-- Masthead-->
 <header class="masthead">
     <div class="container">
@@ -42,6 +47,8 @@
         </div>
     {% endfor %}
     
+    
+
     
 
 

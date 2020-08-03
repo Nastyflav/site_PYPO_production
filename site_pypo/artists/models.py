@@ -14,10 +14,12 @@ from modelcluster.contrib.taggit import ClusterTaggableManager
 from taggit.models import TaggedItemBase
 
 from wagtail.core.models import Page, Orderable
-from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
+from wagtail.core.fields import RichTextField, StreamField
+from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, StreamFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
+
+from artists.blocks import BaseArticleStreamBlock
 
 
 class ArtistsCatalogPage(Page):
@@ -45,6 +47,11 @@ class ArtistPage(Page):
 
     style = models.CharField(max_length=100, verbose_name='Style')
     body = RichTextField(blank=True, verbose_name='Biographie')
+    video = StreamField(
+       BaseArticleStreamBlock(),
+       verbose_name="Vidéos",
+       blank=True
+   )
 
     def main_image(self):
         """Print the artist image on top of the page"""
@@ -66,7 +73,8 @@ class ArtistPage(Page):
         InlinePanel('fb_link', label="Lien Facebook"),
         InlinePanel('insta_link', label="Lien Instagram"),
         InlinePanel('twitter_link', label="Lien Twitter"),
-        InlinePanel('gigs', label="Concerts")
+        InlinePanel('gigs', label="Concerts"),
+        StreamFieldPanel('video'),
     ]
 
     class Meta:
