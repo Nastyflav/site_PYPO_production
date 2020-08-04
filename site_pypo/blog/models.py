@@ -14,10 +14,12 @@ from modelcluster.contrib.taggit import ClusterTaggableManager
 from taggit.models import TaggedItemBase
 
 from wagtail.core.models import Page, Orderable
-from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
+from wagtail.core.fields import RichTextField, StreamField
+from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, StreamFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
+
+from blog.blocks import BaseArticleStreamBlock
 
 
 class BlogIndexPage(Page):
@@ -64,10 +66,15 @@ class BlogPage(Page):
     subpage_types = []
     parent_page_types = ['BlogIndexPage']
 
-    date = models.DateField("Post date")
+    date = models.DateField("Date")
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
+    video = StreamField(
+       BaseArticleStreamBlock(),
+       verbose_name="Vidéos",
+       blank=True
+   )
 
     def main_image(self):
         gallery_item = self.gallery_images.first()
@@ -85,10 +92,11 @@ class BlogPage(Page):
         MultiFieldPanel([
             FieldPanel('date'),
             FieldPanel('tags'),
-        ], heading="Blog information"),
+        ], heading="Infos du billet"),
         FieldPanel('intro'),
         FieldPanel('body'),
-        InlinePanel('gallery_images', label="Gallery images"),
+        InlinePanel('gallery_images', label="Images"),
+        StreamFieldPanel('video'),
     ]
 
     class Meta:
