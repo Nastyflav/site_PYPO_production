@@ -5,29 +5,31 @@
 {% block body_class %}template-blogpage{% endblock %}
 
 {% block content %}
-    <h1>{{ page.title }}</h1>
-    <p class="meta">{{ page.date }}</p>
 
-    <div class="intro">{{ page.intro }}</div>
-
-    {{ page.body|richtext }}
-
-    {% for item in page.gallery_images.all %}
-        <div style="float: left; margin: 10px">
-            {% image item.image fill-320x240 %}
-            <p>{{ item.caption }}</p>
+<section>
+    <div class="container">
+        <div class="text-center">
+            <h1>{{ page.title }}</h1>
         </div>
-    {% endfor %}
-
-    <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
-
-    {% if page.tags.all.count %}
-    <div class="tags">
-        <h3>Tags</h3>
-        {% for tag in page.tags.all %}
-            <a href="{% slugurl 'tags' %}?tag={{ tag }}"><button type="button">{{ tag }}</button></a>
-        {% endfor %}
-    </div>
-    {% endif %}
+        <div class="text-right">
+            <p class="meta">{{ page.date }}</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                {% for item in page.gallery_images.all %}
+                <div style="float: left; margin: 10px">
+                    {% image item.image fill-320x500 %}
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-lg-8">
+                <div class="intro">{{ page.intro }}</div>
+                {{ page.body|richtext }}
+            </div>
+        </div>
+        <div class="text-right">
+            <p><a href="{{ page.get_parent.url }}">Retour au blog</a></p>
+        </div>
+</section>
 
 {% endblock %}
