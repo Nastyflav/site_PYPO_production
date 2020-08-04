@@ -2,7 +2,10 @@
 #mainNav {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: $white;
+    background-color: transparent;
+    &.navbar-shrink {
+        background-color: $text;
+    }
     .navbar-toggler {
         padding: 0.75rem;
         font-family: $headings-font-family;
@@ -59,7 +62,7 @@
         &.navbar-shrink {
             padding-top: 1rem;
             padding-bottom: 1rem;
-            background-color: $secondary;
+            background-color: $text;
             .navbar-brand {
                 font-size: 1.25em;
                 svg,

@@ -10084,7 +10084,10 @@ img::-moz-selection {
 #mainNav {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: white;
+  background-color: transparent;
+}
+#mainNav.navbar-shrink {
+  background-color: black;
 }
 #mainNav .navbar-toggler {
   padding: 0.75rem;
@@ -10134,7 +10137,7 @@ img::-moz-selection {
   #mainNav.navbar-shrink {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: #6c6869;
+    background-color: black;
   }
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.25em;
@@ -10516,4 +10519,9 @@ section#contact form#contactForm :-ms-input-placeholder {
   text-align: center;
   font-size: 0.9rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background-color: black;
+}
+
+.text-copyright {
+  color: white;
 }
