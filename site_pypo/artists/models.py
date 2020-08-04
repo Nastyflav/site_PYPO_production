@@ -129,7 +129,7 @@ class ArtistPageGigs(Orderable):
     date = models.DateField(null=True, verbose_name="Date")
     city = models.CharField(max_length=100, null=True, verbose_name="Ville")
     location = models.CharField(max_length=300, null=True, verbose_name="Lieu")
-    link = models.URLField(max_length=300, unique=True, null=True, verbose_name='Lien événement')
+    link = models.URLField(max_length=300, null=True, verbose_name='Lien événement')
 
     panels = [
         FieldPanel('date'),

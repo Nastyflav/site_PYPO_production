@@ -6,14 +6,13 @@
 
 {% block content %}
 
-    {% for block in page.content %}
-        {# Loop through every streamfield and include the rendered template files to your page. #}
-        {% include_block block %}
-    {% endfor %}
-
 <!-- Masthead-->
-<header class="masthead">
-    <div class="container">
+<header class="artist-banner">
+    <div class="row">
+        {% for item in page.gallery_images.all %}
+            {% image item.image fill-900x400 %}
+        </div>
+        {% endfor %}
     </div>
 </header>
 
@@ -21,35 +20,62 @@
     <div class="container">
         <h1>{{ page.title }}</h1>
         <h5 class="section-subheading text-muted">{{ page.style}}</h5>
-        {{ page.body|richtext }}
-        <div class="col-lg-4 my-3 my-lg-0">
-            {% for link in page.fb_link.all %}
-                <a class="btn btn-light btn-social mx-2" href="{{ link.facebook }}"><i class="fab fa-facebook-f"></i></a>
-            {% endfor %}
-            {% for link in page.insta_link.all %}
-                <a class="btn btn-light btn-social mx-2" href="{{ link.instagram }}"><i class="fab fa-instagram"></i></a>
-            {% endfor %}
-            {% for link in page.twitter_link.all %}
-                <a class="btn btn-light btn-social mx-2" href="{{ link.twitter }}"><i class="fab fa-twitter"></i></a>
-            {% endfor %}
+        <div class="row">
+            <div class="col-lg-8 text-justify">
+                {{ page.body|richtext }}
+            </div>
+            <div class="col-lg-4">
+                <div class="spotify-embed-block">
+                    <iframe src="https://open.spotify.com/embed/album/0LvONQe9zmFkdW6TBeBgUD" width="400" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                </div>
+            </div>
         </div>
         <div class="row">
-            <div class="col-lg-11 text-right">
-                <p><a href="{{ page.get_parent.url }}">Retour aux artistes</a></p>
+            <div class="col-lg-4 my-3 my-lg-0">
+                {% for link in page.fb_link.all %}
+                    <a class="btn btn-light btn-social mx-3" href="{{ link.facebook }}"><i class="fab fa-facebook-f"></i></a>
+                {% endfor %}
+                {% for link in page.insta_link.all %}
+                    <a class="btn btn-light btn-social mx-3" href="{{ link.instagram }}"><i class="fab fa-instagram"></i></a>
+                {% endfor %}
+                {% for link in page.twitter_link.all %}
+                    <a class="btn btn-light btn-social mx-3" href="{{ link.twitter }}"><i class="fab fa-twitter"></i></a>
+                {% endfor %}
             </div>
         </div>
     </div>
 </section>
 
-    {% for item in page.gallery_images.all %}
-        <div style="float: left; margin: 10px">
-            {% image item.image fill-320x240 %}
+<section class="container agenda">
+    <div class="text-center">
+        <h2 class="section-heading text-uppercase">Les prochaines dates</h2>
+        <br>
+        <hr>
+        <br>
+    </div>
+    {% for gig in page.gigs.all %}
+    <div class="row">
+        <div class="col-lg-2 text-center">
+            {{ gig.date }}
         </div>
+        <div class="col-lg-2 text-center">
+            {{ gig.city }}
+        </div>
+        <div class="col-lg-4 text-center">
+            {{ gig.location }}
+        </div>
+        <div class="col-lg-2">
+            <a class="btn btn-light btn-social mx-3" href="{{ gig.link }}"><i class="fas fa-external-link-square-alt"></i></a>
+        </div>
+    </div>
     {% endfor %}
+</section>
     
+        <div class="row">
+            <div class="col-lg-11 text-right">
+                <p><a href="{{ page.get_parent.url }}">Retour aux artistes</a></p>
+            </div>
+        </div>
     
-
-    
-
 
 {% endblock %}
