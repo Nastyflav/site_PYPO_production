@@ -74,6 +74,7 @@ class ArtistPage(Page):
         InlinePanel('insta_link', label="Lien Instagram"),
         InlinePanel('twitter_link', label="Lien Twitter"),
         InlinePanel('gigs', label="Concerts"),
+        InlinePanel('audio', label="Lien Spotify"),
         StreamFieldPanel('video'),
     ]
 
@@ -135,5 +136,15 @@ class ArtistPageGigs(Orderable):
         FieldPanel('date'),
         FieldPanel('city'),
         FieldPanel('location'),
+        FieldPanel('link'),
+    ]
+
+
+class ArtistPagePlayer(Orderable):
+    """To add a player into the artist page"""
+    page = ParentalKey(ArtistPage, on_delete=models.CASCADE, related_name="audio")
+    link = models.URLField(max_length=300, null=True, verbose_name='Code embed', help_text="Insérer le code embed de la playlist Spotify")
+
+    panels = [
         FieldPanel('link'),
     ]

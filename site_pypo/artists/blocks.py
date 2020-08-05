@@ -15,7 +15,7 @@ from wagtail.core.blocks import StreamBlock
 class VideoEmbedBlock(StructBlock):
    video = EmbedBlock(
        required=True,
-       help_text="Insert a video url e.g https://youtu.be/yRmZ6WUfoOc"
+       help_text="Insérer une url comme par ex. https://youtu.be/yRmZ6WUfoOc"
    )
 
    class Meta:
