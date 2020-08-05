@@ -10588,3 +10588,23 @@ header.artist-banner .artist-banner-heading {
     margin-bottom: 4rem;
   }
 }
+.agenda-line {
+  align-self: center;
+  border-color: #ffa300;
+  border-radius: 2rem;
+  padding-top: 1rem;
+}
+
+.agenda-date {
+  background-color: #ffa300;
+  align-self: center;
+  border-radius: 1rem;
+}
+
+.agenda-city {
+  align-self: center;
+}
+
+.agenda-location {
+  align-self: center;
+}

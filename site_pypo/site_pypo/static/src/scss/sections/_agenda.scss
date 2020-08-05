@@ -1,3 +1,20 @@
-.agenda {
-    
+.agenda-line {
+    align-self: center;
+    border-color: $primary;
+    border-radius: 2rem;
+    padding-top: 1rem;
+}
+
+.agenda-date {
+    background-color: $primary;
+    align-self: center;
+    border-radius: 1rem;
+}
+
+.agenda-city {
+    align-self: center;
+}
+
+.agenda-location {
+    align-self: center;
 }
