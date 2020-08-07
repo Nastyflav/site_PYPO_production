@@ -13,7 +13,7 @@
 </header>
 
 <!-- Team-->
-<section class="page-section bg-light" id="team">
+<section class="page-section" id="portfolio">
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">{{ page.title }}</h2>
@@ -25,10 +25,10 @@
             {% for member in page.members.all %}
             <div class="col-lg-4">
                 <div class="team-member">
-                    <h4>{{ member.firstname }} {{ member.lastname }}</h4>
+                    <h4 class="section-subheading">{{ member.firstname }} {{ member.lastname }}</h4>
                     <p class="text-muted">{{ member.job }}</p>
-                    <a class="text">{{ member.phone }}</a><br>
-                    <a class="text" href="{{ member.email }}">{{ member.email }}</a>
+                    <p class="text">{{ member.phone }}</p><br>
+                    <a href="{{ member.email }}">{{ member.email }}</a>
                 </div>
             </div>
             {% endfor %}
