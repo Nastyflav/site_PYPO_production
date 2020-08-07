@@ -18,12 +18,36 @@ from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
+from wagtail.images.models import Image
 
 
 class HomePage(Page):
+    "Model of the home page"
+    banner = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        verbose_name='Bannière'
+    )
+
+    content_panels = Page.content_panels + [
+        ImageChooserPanel('banner'),
+        InlinePanel('audio', label="Lien Spotify"),
+    ]
     
     class Meta:
         verbose_name = "Accueil"
+
+
+class HomePagePlayer(Orderable):
+    """To add an audio player into the homepage"""
+    page = ParentalKey(HomePage, on_delete=models.CASCADE, related_name="audio")
+    link = models.URLField(max_length=300, null=True, verbose_name='Code embed', help_text="Insérer le code embed de la playlist Spotify")
+
+    panels = [
+        FieldPanel('link'),
+    ]
 
 
 class TermsPage(Page):
@@ -62,16 +86,16 @@ class AssociationPage(Page):
     parent_page_types = ['home.HomePage']
 
     body = RichTextField(verbose_name='Historique')
-
-    def main_image(self):
-        """Print the introducing image on top of the page"""
-        gallery_item = self.gallery_images.first()
-        if gallery_item:
-            return gallery_item.image
-        else:
-            return None
+    banner = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        verbose_name='Bannière'
+    )
 
     content_panels = Page.content_panels + [
+        ImageChooserPanel('banner'),
         FieldPanel('body'),
     ]
 
