@@ -9,10 +9,7 @@
 <!-- Masthead-->
 <header class="artist-banner">
     <div class="row">
-        {% for item in page.gallery_images.all %}
-            {% image item.image fill-900x400 %}
-        </div>
-        {% endfor %}
+        {% image page.banner width-400 %}
     </div>
 </header>
 

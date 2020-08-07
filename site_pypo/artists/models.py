@@ -18,6 +18,7 @@ from wagtail.core.fields import RichTextField, StreamField
 from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, StreamFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
+from wagtail.images.models import Image
 
 from artists.blocks import BaseArticleStreamBlock
 
@@ -52,14 +53,13 @@ class ArtistPage(Page):
        verbose_name="Vidéos",
        blank=True
    )
-
-    def main_image(self):
-        """Print the artist image on top of the page"""
-        gallery_item = self.gallery_images.first()
-        if gallery_item:
-            return gallery_item.image
-        else:
-            return None
+    banner = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        verbose_name='Bannière'
+    )
 
     search_fields = Page.search_fields + [
         index.SearchField('style'),
@@ -67,9 +67,9 @@ class ArtistPage(Page):
     ]
 
     content_panels = Page.content_panels + [
+        ImageChooserPanel('banner'),
         FieldPanel('style'),
         FieldPanel('body'),
-        InlinePanel('gallery_images', label="Gallery images"),
         InlinePanel('fb_link', label="Lien Facebook"),
         InlinePanel('insta_link', label="Lien Instagram"),
         InlinePanel('twitter_link', label="Lien Twitter"),
