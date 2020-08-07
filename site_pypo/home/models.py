@@ -113,7 +113,7 @@ class TeamPageMembers(Orderable):
     phone = models.CharField(max_length=15, verbose_name="Numéro")
     email = models.EmailField(verbose_name="Email")
     image = models.ForeignKey(
-        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+        'wagtailimages.Image', on_delete=models.CASCADE, verbose_name='Photo'
     )
 
     panels = [
