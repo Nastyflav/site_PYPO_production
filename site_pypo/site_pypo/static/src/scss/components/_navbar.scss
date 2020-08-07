@@ -4,7 +4,7 @@
     padding-bottom: 1rem;
     background-color: transparent;
     &.navbar-shrink {
-        background-color: $text;
+        background-color: $back;
     }
     .navbar-toggler {
         padding: 0.75rem;
@@ -62,7 +62,7 @@
         &.navbar-shrink {
             padding-top: 1rem;
             padding-bottom: 1rem;
-            background-color: $text;
+            background-color: $back;
             .navbar-brand {
                 font-size: 1.25em;
                 svg,
