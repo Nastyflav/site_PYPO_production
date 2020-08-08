@@ -6,11 +6,9 @@
 
 {% block content %}
 
-<!-- Masthead-->
-<header class="artist-banner">
-    <div class="row">
-        {% image page.banner width-400 %}
-    </div>
+{% image self.banner original as banner %}
+<header class="artist-banner" style="background-image: url('{{ banner.url }}');">
+    <div class="container"></div>
 </header>
 
 <section class="page-section">
