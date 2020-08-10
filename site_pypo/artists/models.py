@@ -153,7 +153,7 @@ class ArtistPageGigs(Orderable):
 class ArtistPagePlayer(Orderable):
     """To add a player into the artist page"""
     page = ParentalKey(ArtistPage, on_delete=models.CASCADE, related_name="audio")
-    link = models.URLField(max_length=300, null=True, verbose_name='Code embed', help_text="Insérer le code embed de la playlist Spotify")
+    link = models.URLField(max_length=300, null=True, verbose_name='Code embed', help_text="Ne garder que le lien du code embed, par ex. https://open.spotify.com/embed/album/3aD9CpmGSqCsN41kqFTB8r")
 
     panels = [
         FieldPanel('link'),
