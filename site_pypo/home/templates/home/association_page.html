@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 
-{% load static wagtailcore_tags %}
+{% load static wagtailcore_tags wagtailimages_tags %}
 
 {% block body_class %}template-associationpage{% endblock %}
 
 {% block content %}
 
-<!-- Masthead-->
-<header class="masthead">
-    <div class="container">
-    </div>
+{% image self.banner original as banner %}
+<header class="artist-banner" style="background-image: url('{{ banner.url }}');">
+    <div class="container"></div>
 </header>
 
 <!-- Story-->
@@ -18,7 +17,6 @@
         <div class="text-center">
             <h2 class="section-heading text-uppercase">{{ page.title }}</h2>
             <br>
-            <hr>
             <br>
             <p class="text-left">{{ page.body|richtext }}</p>
         </div>
@@ -32,7 +30,6 @@
             <h2 class="section-heading text-uppercase">Nos activités principales</h2>
         </div>
         <br>
-        <hr>
         <br>
         <div class="row text-center">
             <div class="col-md-4">
@@ -40,7 +37,7 @@
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-record-vinyl fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">Management, production et diffusion</h4>
+                <h4 class="my-3" style="color: white;">Management, production et diffusion</h4>
                 <p class="text-muted">Artistes émergents (70% d'artistes locaux)</p>
             </div>
             <div class="col-md-4">
@@ -48,7 +45,7 @@
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-calculator fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">Gestion administrative</h4>
+                <h4 class="my-3" style="color: white;">Gestion administrative</h4>
                 <p class="text-muted">Encadrement juridique et conseils aux activités professionnelles de spectacle vivant en Musiques actuelles</p>
             </div>
             <div class="col-md-4">
@@ -56,7 +53,7 @@
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-lightbulb fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">RDV conseils-diagnostics</h4>
+                <h4 class="my-3" style="color: white;">RDV conseils-diagnostics</h4>
                 <p class="text-muted">Répondant aux nombreuses sollicitations d’artistes émergents du territoire</p>
             </div>
             <div class="col-md-4">
@@ -64,7 +61,7 @@
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-volume-up fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">Création d'événements de sensibilisation</h4>
+                <h4 class="my-3" style="color: white;">Création d'événements de sensibilisation</h4>
                 <p class="text-muted">A destination des publics à la diversité culturelle et aux modes de production et de consommation orientés vers un développement économique durable</p>
             </div>
             <div class="col-md-4">
@@ -72,7 +69,7 @@
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-users fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">Dynamisation des circuits-courts</h4>
+                <h4 class="my-3" style="color: white;">Dynamisation des circuits-courts</h4>
                 <p class="text-muted">De la production artisanale et de l’offre de services du territoire par le développement événementiel</p>
             </div>
             <div class="col-md-4">
@@ -80,7 +77,7 @@
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-handshake fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">Action de rapprochement</h4>
+                <h4 class="my-3" style="color: white;">Action de rapprochement</h4>
                 <p class="text-muted">Des acteurs culturels et des publics avec le secteur de l’Economie sociale et solidaire</p>
             </div>
             <div class="col-md-4">
@@ -88,7 +85,7 @@
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-comments fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">Participation et intervention régulière dans les réseaux de la filière musicale</h4>
+                <h4 class="my-3" style="color: white;">Participation et intervention régulière dans les réseaux de la filière musicale</h4>
                 <p class="text-muted">Particulièrement sur les dynamiques d’émergence artistique et de diversité culturelle</p>
             </div>
         </div>

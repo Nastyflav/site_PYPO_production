@@ -103,18 +103,6 @@ class AssociationPage(Page):
         verbose_name = "Association"
 
 
-class AssociationPageGalleryImage(Orderable):
-    """Allows to integrate one image into the introducing page"""
-    page = ParentalKey(AssociationPage, on_delete=models.CASCADE, related_name='gallery_images')
-    image = models.ForeignKey(
-        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
-    )
-
-    panels = [
-        ImageChooserPanel('image'),
-    ]
-
-
 class TeamPage(Page):
     """Create the models for the team page"""
     subpage_types = []
