@@ -73,6 +73,8 @@ class ArtistPage(Page):
         InlinePanel('fb_link', label="Lien Facebook"),
         InlinePanel('insta_link', label="Lien Instagram"),
         InlinePanel('twitter_link', label="Lien Twitter"),
+        InlinePanel('youtube_link', label="Lien Youtube"),
+        InlinePanel('website_link', label="Lien Site web"),
         InlinePanel('gigs', label="Concerts"),
         InlinePanel('audio', label="Lien Spotify"),
         StreamFieldPanel('video'),
@@ -109,6 +111,26 @@ class ArtistPageTwitterLink(Orderable):
 
     panels = [
         FieldPanel('twitter'),
+    ]
+
+
+class ArtistPageYoutubeLink(Orderable):
+    """Allows to integrate a Youtube link"""
+    page = ParentalKey(ArtistPage, on_delete=models.CASCADE, related_name="youtube_link")
+    youtube = models.URLField(max_length=300, unique=True, null=True, verbose_name='Lien Youtube')
+
+    panels = [
+        FieldPanel('youtube'),
+    ]
+
+
+class ArtistPageWebsiteLink(Orderable):
+    """Allows to integrate a website link"""
+    page = ParentalKey(ArtistPage, on_delete=models.CASCADE, related_name="website_link")
+    website = models.URLField(max_length=300, unique=True, null=True, verbose_name='Lien Site web')
+
+    panels = [
+        FieldPanel('website'),
     ]
 
 

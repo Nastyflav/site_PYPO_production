@@ -38,6 +38,12 @@
                 {% for link in page.twitter_link.all %}
                     <a class="btn btn-light btn-social mx-3" href="{{ link.twitter }}"><i class="fab fa-twitter"></i></a>
                 {% endfor %}
+                {% for link in page.youtube_link.all %}
+                    <a class="btn btn-light btn-social mx-3" href="{{ link.youtube }}"><i class="fab fa-youtube"></i></a>
+                {% endfor %}
+                {% for link in page.website_link.all %}
+                    <a class="btn btn-light btn-social mx-3" href="{{ link.website }}"><i class="fas fa-link"></i></a>
+                {% endfor %}
             </div>
         </div>
     </div>
