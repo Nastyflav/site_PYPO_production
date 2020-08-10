@@ -11,41 +11,57 @@
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">{{ page.title }}</h2>
+            <br>
+            <br>
         </div>
-        <div class="row text-center">
+        <div class="row">
             <div class="col-md-12">
-                <h4 class="my-3 text-left">Editeur :</h4>
-                <div class="text-left">{{ page.editor|richtext }}</div>
+                <h5 class="section-subheading text-uppercase">Editeur :</h5>
+                <br>
+                <p class="text-muted">{{ page.editor|richtext }}</p>
+                <br>
             </div>
             <div class="col-md-12">
-                <h4 class="my-3 text-left">Hébergeur :</h4>
-                <div class="text-left">{{ page.host|richtext }}</div>
+                <h5 class="section-subheading text-uppercase">Hébergeur :</h5>
+                <br>
+                <div class="text-muted">{{ page.host|richtext }}</div>
+                <br>
             </div>
             <div class="col-md-12">
-                <h4 class="my-3 text-left">Crédits photos :</h4>
-                <div class="text-left">{{ page.photo_credits|richtext }}</div>
+                <h5 class="section-subheading text-uppercase">Crédits photos :</h5>
+                <br>
+                <div class="text-muted">{{ page.photo_credits|richtext }}</div>
+                <br>
             </div>
             <div class="col-md-12">
-                <h4 class="my-3 text-left">Exploitant :</h4>
-                <div class="text-left">{{ page.pypo|richtext }}</div>
+                <h5 class="section-subheading text-uppercase">Exploitant :</h5>
+                <br>
+                <div class="text-muted">{{ page.pypo|richtext }}</div>
+                <br>
             </div>
             <div class="col-md-12">
-                <h4 class="my-3 text-left">Conception :</h4>
-                <div class="text-left">{{ page.maker|richtext }}</div>
+                <h5 class="section-subheading text-uppercase">Conception :</h5>
+                <br>
+                <div class="text-muted">{{ page.maker|richtext }}</div>
+                <br>
             </div>
             <div class="col-md-12">
-                <h4 class="my-3 text-left">Graphisme :</h4>
-                <div class="text-left">{{ page.graphism|richtext }}</div>
+                <h5 class="section-subheading text-uppercase">Graphisme :</h5>
+                <br>
+                <div class="text-muted">{{ page.graphism|richtext }}</div>
+                <br>
             </div>
             <div class="col-md-12">
-                <h4 class="my-3 text-left">Informations relatives à la protection des données :</h4>
-                <div class="text-left">{{ page.cnil|richtext }}</div>
+                <h5 class="section-subheading text-uppercase">Informations relatives à la protection des données :</h5>
+                <br>
+                <div class="text-muted">{{ page.cnil|richtext }}</div>
+                <br>
             </div>
             <div class="col-md-12">
-                <h4 class="my-3 text-left">Propriété intellectuelle :</h4>
-                <div class="text-left">{{ page.rights|richtext }}</div>
+                <h5 class="section-subheading text-uppercase">Propriété intellectuelle :</h5>
+                <br>
+                <div class="text-muted">{{ page.rights|richtext }}</div>
             </div>
-            
         </div>
     </div>
 </section>
