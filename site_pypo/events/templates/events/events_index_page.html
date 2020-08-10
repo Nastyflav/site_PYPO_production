@@ -2,12 +2,12 @@
 
 {% load static wagtailcore_tags wagtailimages_tags %}
 
-{% block body_class %}template-eventsindexpage{% endblock %}
+{% block body_class %}template-artistcatalogpage{% endblock %}
 
 {% block content %}
 
 <!-- Portfolio Grid-->
-<section class="page-section bg-light" id="portfolio">
+<section class="page-section" id="portfolio">
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">{{ page.title }}</h2>
@@ -18,15 +18,10 @@
             {% with event=event.specific %}
             <div class="col-lg-4 col-sm-6 mb-4">
                 <div class="portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="{% pageurl event %}">
-                        <div class="portfolio-hover">
-                        {% with event.main_image as main_image %}
-                            {% if main_image %}{% image main_image fill-160x100 %}{% endif %}
-                        {% endwith %}
-                        
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" alt="" />
+                    <a class="portfolio-link" href="{% pageurl event %}">
+                        {% image event.banner original as banner %}
+                        <div class="portfolio-hover"></div>
+                        <img class="img-fluid" src="{{ banner.url }}" alt="" />  
                     </a>
                     <div class="portfolio-caption">
                         <a href="{% pageurl event %}">{{ event.title }}</a>
