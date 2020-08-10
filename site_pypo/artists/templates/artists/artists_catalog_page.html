@@ -19,11 +19,9 @@
             <div class="col-lg-4 col-sm-6 mb-4">
                 <div class="portfolio-item">
                     <a class="portfolio-link" href="{% pageurl artist %}">
+                        {% image artist.banner original as banner %}
                         <div class="portfolio-hover"></div>
-                        {% with artist.main_image as main_image %}
-                        {% if main_image %}{% image main_image fill-250x250 %}{% endif %}
-                        {% endwith %}
-                        
+                        <img class="img-fluid" src="{{ banner.url }}" alt="" />  
                     </a>
                     <div class="portfolio-caption">
                         <a href="{% pageurl artist %}">{{ artist.title }}</a>
