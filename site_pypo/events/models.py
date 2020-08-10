@@ -45,14 +45,13 @@ class EventPage(Page):
 
     body = RichTextField(blank=True, verbose_name='Présentation')
     links = RichTextField(blank=True, verbose_name='Liens')
-
-    def main_image(self):
-        """Print the artist image on top of the page"""
-        gallery_item = self.gallery_images.first()
-        if gallery_item:
-            return gallery_item.image
-        else:
-            return None
+    banner = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        verbose_name='Bannière'
+    )
 
     search_fields = Page.search_fields + [
         index.SearchField('body'),
@@ -60,22 +59,10 @@ class EventPage(Page):
     ]
 
     content_panels = Page.content_panels + [
+        ImageChooserPanel('banner'),
         FieldPanel('body'),
         FieldPanel('links'),
-        InlinePanel('gallery_images', label="Gallery images"),
     ]
 
     class Meta:
         verbose_name = "Evénement"
-
-
-class EventPageGalleryImage(Orderable):
-    """Allows to integrate one image into an event page"""
-    page = ParentalKey(EventPage, on_delete=models.CASCADE, related_name='gallery_images')
-    image = models.ForeignKey(
-        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
-    )
-
-    panels = [
-        ImageChooserPanel('image'),
-    ]
