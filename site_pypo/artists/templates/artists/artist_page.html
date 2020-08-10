@@ -6,14 +6,16 @@
 
 {% block content %}
 
+<!-- Banner-->
 {% image self.banner original as banner %}
 <header class="artist-banner" style="background-image: url('{{ banner.url }}');">
     <div class="container"></div>
 </header>
 
+<!-- Artist-->
 <section class="artist-section">
     <div class="container">
-        <h2 class="section-heading text-uppercase">{{ page.title }}</h1>
+        <h2 class="section-heading text-uppercase">{{ page.title }}</h2>
         <h3 class="section-subheading text-muted">{{ page.style}}</h5>
         <div class="row">
             <div class="col-lg-8 text-justify">
@@ -49,6 +51,7 @@
     </div>
 </section>
 
+<!-- Agenda-->
 <section class="page-section" id="agenda">
     <div class="container">
         <div class="text-center">
@@ -76,11 +79,12 @@
         {% endfor %}
     </div>
 </section>
-    
-        <div class="row">
-            <div class="col-lg-11 text-right">
-                <p><a href="{{ page.get_parent.url }}">Retour aux artistes</a></p>
-            </div>
-        </div>
+
+<!-- Return to artists catalog-->
+<div class="row">
+    <div class="col-lg-11 text-right">
+        <p><a href="{{ page.get_parent.url }}">Retour aux artistes</a></p>
+    </div>
+</div>
 
 {% endblock %}

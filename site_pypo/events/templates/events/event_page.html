@@ -6,22 +6,32 @@
 
 {% block content %}
 
-    <!-- Masthead-->
-    <header class="masthead">
-        <div class="container">
-            {% for item in page.gallery_images.all %}
-                <div style="float: left; margin: 10px">{% image item.image fill-320x240 %}</div>
-            {% endfor %}
+<!-- Banner-->
+{% image self.banner original as banner %}
+<header class="artist-banner" style="background-image: url('{{ banner.url }}');">
+    <div class="container"></div>
+</header>
+
+<!-- Event-->
+<section class="artist-section">
+    <div class="container">
+        <h2 class="section-heading text-uppercase">{{ page.title }}</h2>
+        <div class="row">
+            <div class="col-lg-7 text-justify">
+                {{ page.body|richtext }}
+            </div>
+            <div class="col-lg-5">
+                {{ page.links|richtext}}
+            </div>
         </div>
-    </header>
-    
-    <h1>{{ page.title }}</h1>
+    </div>
+</section>
 
-    <div class="intro">{{ page.links|richtext}}</div>
-
-    {{ page.body|richtext }}
-
-    <p><a href="{{ page.get_parent.url }}">Retour aux événements</a></p>
-
+<!-- Return to events catalog-->
+<div class="row">
+    <div class="col-lg-11 text-right">
+        <p><a href="{{ page.get_parent.url }}">Retour aux événements</a></p>
+    </div>
+</div>
 
 {% endblock %}
