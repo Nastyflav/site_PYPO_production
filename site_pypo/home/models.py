@@ -10,15 +10,14 @@ Licence: `GNU GPL v3` GNU GPL v3: http://www.gnu.org/licenses/
 from django.db import models
 
 from modelcluster.fields import ParentalKey
-from modelcluster.contrib.taggit import ClusterTaggableManager
-from taggit.models import TaggedItemBase
 
 from wagtail.core.models import Page, Orderable
 from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
+from wagtail.admin.edit_handlers import (
+                                         FieldPanel,
+                                         InlinePanel,
+                                         MultiFieldPanel)
 from wagtail.images.edit_handlers import ImageChooserPanel
-from wagtail.search import index
-from wagtail.images.models import Image
 
 
 class HomePage(Page):
@@ -35,15 +34,18 @@ class HomePage(Page):
         ImageChooserPanel('banner'),
         InlinePanel('audio', label="Lien Spotify"),
     ]
-    
+
     class Meta:
         verbose_name = "Accueil"
 
 
 class HomePagePlayer(Orderable):
     """To add an audio player into the homepage"""
-    page = ParentalKey(HomePage, on_delete=models.CASCADE, related_name="audio")
-    link = models.URLField(max_length=300, null=True, verbose_name='Code embed', help_text="Insérer le code embed de la playlist Spotify")
+    page = ParentalKey(
+        HomePage, on_delete=models.CASCADE, related_name="audio")
+    link = models.URLField(
+        max_length=300, null=True, verbose_name='Code embed',
+        help_text="Insérer le code embed de la playlist Spotify")
 
     panels = [
         FieldPanel('link'),
@@ -118,7 +120,8 @@ class TeamPage(Page):
 
 class TeamPageMembers(Orderable):
     """To describe every team members"""
-    page = ParentalKey(TeamPage, on_delete=models.CASCADE, related_name="members")
+    page = ParentalKey(
+        TeamPage, on_delete=models.CASCADE, related_name="members")
     firstname = models.CharField(max_length=50, verbose_name="Prénom")
     lastname = models.CharField(max_length=50, verbose_name="Nom")
     job = models.CharField(max_length=200, verbose_name="Poste")
