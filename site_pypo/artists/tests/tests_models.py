@@ -10,14 +10,13 @@ Licence: `GNU GPL v3` GNU GPL v3: http://www.gnu.org/licenses/
 from django.test import TestCase
 
 from wagtail.tests.utils import WagtailPageTests
-from wagtail.tests.utils.form_data import nested_form_data, streamfield
 
-from artists.models import ArtistPage, ArtistsCatalogPage, ArtistPageGalleryImage
+from artists.models import ArtistPage, ArtistsCatalogPage
 from home.models import HomePage
 
 
 class TestArtistsPages(WagtailPageTests):
-    """To test the artists app models"""
+    """To test the artists app models and arborescence"""
     def test_can_create_an_artist_page(self):
         """Can create a page under the Artist Catalog Page"""
         self.assertCanCreateAt(ArtistsCatalogPage, ArtistPage)

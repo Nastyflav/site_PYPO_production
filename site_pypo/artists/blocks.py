@@ -13,16 +13,16 @@ from wagtail.core.blocks import StreamBlock
 
 
 class VideoEmbedBlock(StructBlock):
-   video = EmbedBlock(
-       required=True,
-       help_text="Insérer une url comme par ex. https://youtu.be/yRmZ6WUfoOc"
-   )
+    video = EmbedBlock(
+        required=True,
+        help_text="Insérer une url comme par ex. https://youtu.be/yRmZ6WUfoOc"
+    )
 
-   class Meta:
-       icon = 'media'
-       label = "Vidéo intégrée"
-       template = "artists/blocks/block_video_embed.html"
+    class Meta:
+        icon = 'media'
+        label = "Vidéo intégrée"
+        template = "artists/blocks/block_video_embed.html"
 
 
 class BaseArticleStreamBlock(StreamBlock):
-   video = VideoEmbedBlock()
+    video = VideoEmbedBlock()
