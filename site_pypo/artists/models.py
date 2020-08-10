@@ -82,18 +82,6 @@ class ArtistPage(Page):
         verbose_name = "Artiste"
 
 
-class ArtistPageGalleryImage(Orderable):
-    """Allows to integrate one image into an artiste page"""
-    page = ParentalKey(ArtistPage, on_delete=models.CASCADE, related_name='gallery_images')
-    image = models.ForeignKey(
-        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
-    )
-
-    panels = [
-        ImageChooserPanel('image'),
-    ]
-
-
 class ArtistPageFacebookLink(Orderable):
     """Allows to integrate a Facebook link"""
     page = ParentalKey(ArtistPage, on_delete=models.CASCADE, related_name="fb_link")
