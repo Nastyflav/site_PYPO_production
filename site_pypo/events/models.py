@@ -30,7 +30,7 @@ class EventsIndexPage(Page):
     def get_context(self, request):
         """Update context to include only published events, ordered by reverse-chron"""
         context = super().get_context(request)
-        events_pages = self.get_children().live().order_by('-first_published_at')
+        events_pages = self.get_children().live().order_by('?')
         context['events_pages'] = events_pages
         return context
 
