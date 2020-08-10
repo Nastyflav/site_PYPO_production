@@ -1,10 +1,10 @@
 // Styling for the contact section
 section#contact {
-    background-color: $secondary;
+    background-color: $back;
     background-repeat: no-repeat;
     background-position: center;
     .section-heading {
-        color: $white;
+        color: $primary;
     }
     form#contactForm {
         .form-group {

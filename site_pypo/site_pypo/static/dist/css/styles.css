@@ -10511,12 +10511,12 @@ header.masthead .masthead-heading {
 }
 
 section#contact {
-  background-color: #6c6869;
+  background-color: black;
   background-repeat: no-repeat;
   background-position: center;
 }
 section#contact .section-heading {
-  color: white;
+  color: #ffc601;
 }
 section#contact form#contactForm .form-group {
   margin-bottom: 1.5rem;

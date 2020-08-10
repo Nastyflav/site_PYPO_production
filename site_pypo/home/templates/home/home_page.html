@@ -1,16 +1,15 @@
 {% extends "base.html" %}
 
-{% load static %}
+{% load static wagtailimages_tags wagtailcore_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
 
-
 {% block content %}
 
-<!-- Masthead-->
-<header class="masthead">
-    <div class="container">
-    </div>
+<!-- Banner-->
+{% image self.banner original as banner %}
+<header class="artist-banner" style="background-image: url('{{ banner.url }}');">
+    <div class="container"></div>
 </header>
 
 <!-- Contact-->
