@@ -12,6 +12,25 @@
     <div class="container"></div>
 </header>
 
+<!-- Artist-->
+<section class="artist-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="section-heading text-uppercase">La playlist PYPO</h2>
+                <p>Retrouvez les nouveautés et inédits de nos artistes</p>
+            </div>
+            <div class="col-lg-6">
+                <div class="spotify-embed-block">
+                    {% for code in page.audio.all %}
+                    <iframe src="{{code.link}}" width="400" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Contact-->
 <section class="page-section" id="contact">
     <div class="container">

@@ -44,8 +44,11 @@ class HomePagePlayer(Orderable):
     page = ParentalKey(
         HomePage, on_delete=models.CASCADE, related_name="audio")
     link = models.URLField(
-        max_length=300, null=True, verbose_name='Code embed',
-        help_text="Insérer le code embed de la playlist Spotify")
+        max_length=300,
+        null=True,
+        verbose_name='Code embed',
+        help_text="Ne garder que le lien du code\
+                   embed, par ex. https://open.spotify.com/embed/album/***")
 
     panels = [
         FieldPanel('link'),
