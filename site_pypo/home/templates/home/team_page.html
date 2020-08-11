@@ -12,16 +12,16 @@
         <div class="text-center">
             <h2 class="section-heading text-uppercase">{{ page.title }}</h2>
             <br>
-            <hr>
-            <br>
         </div>
         <div class="row">
             {% for member in page.members.all %}
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="team-member">
+                    {% image member.image original as image %}
+                    <img class="mx-auto rounded-circle" src="{{ image.url }}" alt="" />
                     <h4 class="section-subheading">{{ member.firstname }} {{ member.lastname }}</h4>
                     <p class="text-muted">{{ member.job }}</p>
-                    <p class="text">{{ member.phone }}</p><br>
+                    <p class="text">{{ member.phone }}</p>
                     <a href="{{ member.email }}">{{ member.email }}</a>
                 </div>
             </div>
