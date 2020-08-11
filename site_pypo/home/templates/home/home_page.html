@@ -31,6 +31,33 @@
     </div>
 </section>
 
+<!-- Agenda-->
+<section class="page-section" id="agenda">
+    <div class="container">
+        <div class="text-left">
+            <h2 class="section-heading text-uppercase">Agenda</h2>
+            <p>Concerts, résidences, actions culturelles... Toutes les dates estampillées PYPO Production se trouvent ici !</p>
+        </div>
+        {% for gig in page.gigs.all %}
+        <div class="row agenda-line">
+            <div class="col-lg-4 text-center agenda-date">
+                {{ gig.date }}
+            </div>
+            <div class="col-lg-2 text-center agenda-city">
+                {{ gig.city }}
+            </div>
+            <div class="col-lg-4 text-center agenda-location">
+                {{ gig.location }}
+            </div>
+            <div class="col-lg-2 text-center">
+                <a class="btn btn-light btn-social mx-3" href="{{ gig.link }}"><i class="fas fa-external-link-square-alt"></i></a>
+            </div>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+</section>
+
 <!-- Contact-->
 <section class="page-section" id="contact">
     <div class="container">
