@@ -19,6 +19,8 @@ from wagtail.admin.edit_handlers import (
                                          MultiFieldPanel)
 from wagtail.images.edit_handlers import ImageChooserPanel
 
+from artists.models import ArtistPage
+
 
 class HomePage(Page):
     "Model of the home page"
@@ -34,6 +36,10 @@ class HomePage(Page):
         ImageChooserPanel('banner'),
         InlinePanel('audio', label="Lien Spotify"),
     ]
+
+    @property
+    def artists_infos(self):
+        return ArtistPage.objects.live()
 
     class Meta:
         verbose_name = "Accueil"

@@ -30,14 +30,19 @@ class ArtistsCatalogPage(Page):
 
     intro = RichTextField(blank=True)
 
+    template = 'artists/artists_catalog_page.html'
+
+    @property
+    def artists_pages(self):
+        return self.get_children().live().order_by('?')
+
     def get_context(self, request):
         """
         Update context to include only published artists,
         randomly ordered
         """
         context = super().get_context(request)
-        artists_pages = self.get_children().live().order_by('?')
-        context['artists_pages'] = artists_pages
+        context['artists_pages'] = self.artists_pages
         return context
 
     class Meta:

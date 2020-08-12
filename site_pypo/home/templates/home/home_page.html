@@ -38,15 +38,18 @@
             <h2 class="section-heading text-uppercase">Agenda</h2>
             <p>Concerts, résidences, actions culturelles... Toutes les dates estampillées PYPO Production se trouvent ici !</p>
         </div>
-        {% for gig in page.gigs.all %}
+        {% for artist in page.artists_infos.all %}
         <div class="row agenda-line">
-            <div class="col-lg-4 text-center agenda-date">
-                {{ gig.date }}
+            <div class="col-lg-2 text-center agenda-date">
+                {{ artist.date }}
+            </div>
+            <div class="col-lg-2 text-center agenda-date">
+                {{ artist.title }}
             </div>
             <div class="col-lg-2 text-center agenda-city">
                 {{ gig.city }}
             </div>
-            <div class="col-lg-4 text-center agenda-location">
+            <div class="col-lg-2 text-center agenda-location">
                 {{ gig.location }}
             </div>
             <div class="col-lg-2 text-center">
