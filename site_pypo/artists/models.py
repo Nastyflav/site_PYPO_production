@@ -34,13 +34,14 @@ class ArtistsCatalogPage(Page):
 
     @property
     def artists_pages(self):
+        """
+        Return context to include only published artists,
+        randomly ordered
+        """
         return self.get_children().live().order_by('?')
 
     def get_context(self, request):
-        """
-        Update context to include only published artists,
-        randomly ordered
-        """
+        """Add artists pages to context"""
         context = super().get_context(request)
         context['artists_pages'] = self.artists_pages
         return context

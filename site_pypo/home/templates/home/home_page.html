@@ -39,12 +39,13 @@
             <p>Concerts, résidences, actions culturelles... Toutes les dates estampillées PYPO Production se trouvent ici !</p>
         </div>
         {% for artist in page.artists_infos.all %}
+        {% for gig in artist.gigs.all %}
         <div class="row agenda-line">
             <div class="col-lg-2 text-center agenda-date">
-                {{ artist.date }}
+                {{ gig.date }}
             </div>
-            <div class="col-lg-2 text-center agenda-date">
-                {{ artist.title }}
+            <div class="col-lg-4 text-center agenda-artist">
+                <a href="{% pageurl artist %}">{{ artist.title }}</a>
             </div>
             <div class="col-lg-2 text-center agenda-city">
                 {{ gig.city }}
@@ -57,6 +58,7 @@
             </div>
         </div>
         <hr>
+        {% endfor %}
         {% endfor %}
     </div>
 </section>
