@@ -45,7 +45,7 @@ class ArtistsCatalogPage(Page):
         context = super().get_context(request)
         context['artists_pages'] = self.artists_pages
         return context
-
+ 
     content_panels = Page.content_panels + [
         FieldPanel('intro'),
     ]
