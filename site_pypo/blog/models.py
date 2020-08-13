@@ -36,6 +36,10 @@ class BlogIndexPage(Page):
         context['blog_pages'] = blog_pages
         return context
 
+    content_panels = Page.content_panels + [
+        FieldPanel('intro'),
+    ]
+
     class Meta:
         verbose_name = "Index blog"
 
