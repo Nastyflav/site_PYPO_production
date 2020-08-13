@@ -34,3 +34,7 @@ class TestEventsModels(WagtailPageTests):
         self.assertAllowedParentPageTypes(EventPage, {EventsIndexPage})
         """EventsIndexPage can only be created under a HomePage"""
         self.assertAllowedParentPageTypes(EventsIndexPage, {HomePage})
+
+    def test_content_eventsindexpage_subpages(self):
+        """# An EventsIndexPage can only have EventPage children"""
+        self.assertAllowedSubpageTypes(EventsIndexPage, {EventPage})

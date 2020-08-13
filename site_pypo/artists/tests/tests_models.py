@@ -34,3 +34,7 @@ class TestArtistsPages(WagtailPageTests):
         self.assertAllowedParentPageTypes(ArtistPage, {ArtistsCatalogPage})
         """ArtistCatalogPage can only be created under a Home Page"""
         self.assertAllowedParentPageTypes(ArtistsCatalogPage, {HomePage})
+
+    def test_content_artistscatalogpage_subpages(self):
+        """# An ArtistsCatalogPage can only have ArtistPage children"""
+        self.assertAllowedSubpageTypes(ArtistsCatalogPage, {ArtistPage})

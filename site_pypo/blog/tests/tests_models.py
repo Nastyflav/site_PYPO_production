@@ -33,3 +33,7 @@ class TestBlogModels(WagtailPageTests):
         self.assertAllowedParentPageTypes(BlogPage, {BlogIndexPage})
         """BlogIndexPage can only be created under a Home Page"""
         self.assertAllowedParentPageTypes(BlogIndexPage, {HomePage})
+
+    def test_content_blogindexpage_subpages(self):
+        """# A BlogIndexPage can only have BlogPage children"""
+        self.assertAllowedSubpageTypes(BlogIndexPage, {BlogPage})

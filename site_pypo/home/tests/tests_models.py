@@ -7,13 +7,13 @@ Licence: `GNU GPL v3` GNU GPL v3: http://www.gnu.org/licenses/
 
 """
 
-from wagtail.tests.utils import WagtailPageTests
+from wagtail.tests.utils import WagtailPageTests, TestCase
 
 from home.models import HomePage, TermsPage, AssociationPage, TeamPage
 
 
-class TestHomeModels(WagtailPageTests):
-    """To test the blog app models"""
+class TestHomeArborescence(WagtailPageTests):
+    """To test the blog app models arborescence"""
     def test_can_create_a_terms_page(self):
         """Can create a page under the HomePage"""
         self.assertCanCreateAt(HomePage, TermsPage)
@@ -33,3 +33,14 @@ class TestHomeModels(WagtailPageTests):
         self.assertAllowedParentPageTypes(AssociationPage, {HomePage})
         """TeamPage can only be created under a HomePage"""
         self.assertAllowedParentPageTypes(TeamPage, {HomePage})
+
+    
+# class TestHomeModels(TestCase):
+#     def setUpTestData():
+#         HomePage.objects.create()
+
+#     def test_verbose_name(self):
+#         data = HomePage.objects.get(id=1)
+#         verbose_name = data._meta.get_field('name').verbose_name
+#         self.assertEquals(verbose_name, "Accueil")
+
