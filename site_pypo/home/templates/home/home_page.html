@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <h2 class="section-heading text-uppercase">La playlist PYPO</h2>
-                <p>Retrouvez les nouveautés et inédits de nos artistes</p>
+                <p>{{page.playlist_text|richtext}}</p>
             </div>
             <div class="col-lg-6">
                 <div class="spotify-embed-block">
@@ -36,7 +36,7 @@
     <div class="container">
         <div class="text-left">
             <h2 class="section-heading text-uppercase">Agenda</h2>
-            <p>Concerts, résidences, actions culturelles... Toutes les dates estampillées PYPO Production se trouvent ici !</p>
+            <p>{{page.agenda_text|richtext}}</p>
         </div>
         {% for artist in page.artists_infos.all %}
         {% for gig in artist.gigs.all %}

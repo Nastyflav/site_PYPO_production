@@ -31,10 +31,16 @@ class HomePage(Page):
         on_delete=models.SET_NULL,
         verbose_name='Bannière'
     )
+    playlist_text = RichTextField(blank=True, verbose_name='Texte playlist')
+    agenda_text = RichTextField(blank=True, verbose_name='Texte agenda')
 
     content_panels = Page.content_panels + [
         ImageChooserPanel('banner'),
-        InlinePanel('audio', label="Lien Spotify"),
+        MultiFieldPanel([
+            InlinePanel('audio', label="Lien Spotify"),
+            FieldPanel('playlist_text'),
+        ], heading="Playlist"),
+        FieldPanel('agenda_text'),
     ]
 
     @property
