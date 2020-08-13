@@ -46,6 +46,10 @@ class ArtistsCatalogPage(Page):
         context['artists_pages'] = self.artists_pages
         return context
 
+    content_panels = Page.content_panels + [
+        FieldPanel('intro'),
+    ]
+
     class Meta:
         verbose_name = "Catalogue artistes"
 
