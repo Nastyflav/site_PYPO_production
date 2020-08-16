@@ -7,22 +7,29 @@ Licence: `GNU GPL v3` GNU GPL v3: http://www.gnu.org/licenses/
 
 """
 
-from wagtail.core.blocks import StructBlock
+from wagtail.core.blocks import StructBlock, ChoiceBlock
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.core.blocks import StreamBlock
 
 
-class VideoEmbedBlock(StructBlock):
+class InlineVideoBlock(StructBlock):
     video = EmbedBlock(
-        required=True,
+        label='Vidéo',
         help_text="Insérer une url comme par ex. https://youtu.be/yRmZ6WUfoOc"
+    )
+    position = ChoiceBlock(
+        required=False,
+        choices=[('right', 'Droite'), ('left', 'Gauche'), ('center', 'Centre')],
+        default='right',
+        label='Position'
+    )
+    size = ChoiceBlock(
+        required=False,
+        choices=[('small', 'Petit'), ('medium', 'Médium'), ('large', 'Grand')],
+        default='small',
+        label='Taille'
     )
 
     class Meta:
         icon = 'media'
         label = "Vidéo intégrée"
-        template = "artists/blocks/block_video_embed.html"
-
-
-class BaseArticleStreamBlock(StreamBlock):
-    video = VideoEmbedBlock()

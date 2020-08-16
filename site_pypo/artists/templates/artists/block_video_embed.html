@@ -1,0 +1,11 @@
+{% load wagtailcore_tags %}
+
+{% for block in page.video %}
+    
+    {% if block.block_type == 'video' %}
+        <div class="block-{{ block.block_type }}-{{ block.value.position }} block-{{ block.block_type }}-{{ block.value.size }}">
+            {% include_block block.value.video %}
+        </div>
+    {% endif %}
+
+{% endfor %}

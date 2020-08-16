@@ -20,7 +20,7 @@ from wagtail.admin.edit_handlers import (
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
 
-from artists.blocks import BaseArticleStreamBlock
+from .blocks import InlineVideoBlock
 
 
 class ArtistsCatalogPage(Page):
@@ -58,11 +58,12 @@ class ArtistPage(Page):
     """All the fields to complete when editing an artist page"""
     subpage_types = []
     parent_page_types = ['ArtistsCatalogPage']
-
+    
     style = models.CharField(max_length=100, verbose_name='Style')
     body = RichTextField(blank=True, verbose_name='Biographie')
-    video = StreamField(
-       BaseArticleStreamBlock(), verbose_name="Vidéos", blank=True)
+    video = StreamField([
+        ('video', InlineVideoBlock())
+    ])
     banner = models.ForeignKey(
         'wagtailimages.Image',
         null=True,

@@ -51,6 +51,12 @@
     </div>
 </section>
 
+{% if page.video %}
+<div class="container">
+    {% include "artists/block_video_embed.html" %}
+</div>
+{% endif %}
+
 <!-- Agenda-->
 <section class="page-section" id="agenda">
     <div class="container">
