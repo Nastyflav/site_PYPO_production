@@ -51,17 +51,20 @@
     </div>
 </section>
 
+<!-- Videos-->
 {% if page.video %}
-<div class="container">
-    {% include "artists/block_video_embed.html" %}
-</div>
+<section class="video-section">
+        <div class="container">
+            {% include "artists/block_video_embed.html" %}
+        </div>
+</section>
 {% endif %}
 
 <!-- Agenda-->
 <section class="page-section" id="agenda">
     <div class="container">
-        <div class="text-center">
-            <h1 class="section-heading text-uppercase">Les prochaines dates</h2>
+        <div class="text-left">
+            <h2 class="section-heading text-uppercase">Les prochaines dates</h2>
             <br>
             <hr>
             <br>
