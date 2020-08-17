@@ -1,6 +1,6 @@
 {% extends "base_blog.html" %}
 
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags wagtailimages_tags wagtailembeds_tags %}
 
 {% block body_class %}template-blogpage{% endblock %}
 
@@ -27,12 +27,24 @@
                 <div class="text-blog" style="color: black;">
                     {{ page.body|richtext }}
                 </div>
-                
             </div>
         </div>
-        <div class="text-right">
-            <p><a href="{{ page.get_parent.url }}">Retour au blog</a></p>
+</section>
+
+<!-- Page bottom-->
+{% if page.page_bottom %}
+<section class="blog-bottom-section">
+        <div class="container">
+            {% include "blog/blog_bottom_blocks.html" %}
         </div>
 </section>
+{% endif %}
+
+<!-- Return to blog index-->
+<div class="row">
+    <div class="col-lg-11 text-right">
+        <p><a href="{{ page.get_parent.url }}">Retour au blog</a></p>
+    </div>
+</div>
 
 {% endblock %}

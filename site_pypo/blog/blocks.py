@@ -2,27 +2,62 @@
 # coding: utf-8
 
 """
-Author: [Nastyflav](https://github.com/Nastyflav) 2020-08-04
+Author: [Nastyflav](https://github.com/Nastyflav) 2020-08-17
 Licence: `GNU GPL v3` GNU GPL v3: http://www.gnu.org/licenses/
 
 """
 
-from wagtail.core.blocks import StructBlock
+from wagtail.core.blocks import StructBlock, ChoiceBlock, RichTextBlock, CharBlock
 from wagtail.embeds.blocks import EmbedBlock
-from wagtail.core.blocks import StreamBlock
 
 
-class VideoEmbedBlock(StructBlock):
-   video = EmbedBlock(
-       required=True,
-       help_text="Insérer un lien comme par ex. https://youtu.be/yRmZ6WUfoOc"
-   )
+class InlineVideoBlock(StructBlock):
+    """Video block settings"""
+    title = CharBlock(required=True, label='Type de recommandation')
+    richtext_content = RichTextBlock(required=True)
+    video = EmbedBlock(
+        label='Vidéo',
+        help_text="Insérer une url comme par ex. https://youtu.be/yRmZ6WUfoOc"
+    )
+    position = ChoiceBlock(
+        required=False,
+        choices=[('right', 'Droite'), ('left', 'Gauche'), ('center', 'Centre')],
+        default='right',
+        label='Position'
+    )
+    size = ChoiceBlock(
+        required=False,
+        choices=[('small', 'Petit'), ('medium', 'Médium'), ('large', 'Grand')],
+        default='small',
+        label='Taille'
+    )
 
-   class Meta:
-       icon = 'media'
-       label = "Vidéo intégrée"
-       template = "blog/blocks/block_video_embed.html"
+    class Meta:
+        icon = 'media'
+        label = "Recommandation vidéo"
 
 
-class BaseArticleStreamBlock(StreamBlock):
-   video = VideoEmbedBlock()
+class InlineTextBlock(StructBlock):
+    """Text block settings"""
+    title = CharBlock(required=True, label='Type de recommandation')
+    richtext_content = RichTextBlock(required=True)
+    text_color = ChoiceBlock(required=False, choices=[
+        ('white', 'Blanc'),
+        ('black', 'Noir'),
+    ], default='black')
+    position = ChoiceBlock(
+        required=False,
+        choices=[('right', 'Droite'), ('left', 'Gauche'), ('center', 'Centre')],
+        default='right',
+        label='Position'
+    )
+    size = ChoiceBlock(
+        required=False,
+        choices=[('small', 'Petit'), ('medium', 'Médium'), ('large', 'Grand')],
+        default='small',
+        label='Taille'
+    )
+
+    class Meta:
+        icon = 'edit'
+        label = "Bloc texte recommandations"

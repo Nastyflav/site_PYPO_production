@@ -1,0 +1,18 @@
+{% load wagtailcore_tags %}
+
+{% for block in page.page_bottom %}
+
+    {% if block.block_type == 'video' %}
+            {% include_block block.value.title %}
+            {{ block.value.richtext_content }}
+        <div class="block-{{ block.block_type }}-{{ block.value.position }} block-{{ block.block_type }}-{{ block.value.size }}">
+            {{ block.value.video }}
+        </div>
+    {% else %}
+        <div class="block-{{ block.block_type }}-{{ block.value.position }} block-{{ block.block_type }}-{{ block.value.size }}">
+            {% include_block block.value.title %}
+            {{ block.value.richtext_content }}
+        </div>
+    {% endif %}
+
+{% endfor %}

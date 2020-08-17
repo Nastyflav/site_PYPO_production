@@ -9,10 +9,10 @@ Licence: `GNU GPL v3` GNU GPL v3: http://www.gnu.org/licenses/
 
 from wagtail.core.blocks import StructBlock, ChoiceBlock
 from wagtail.embeds.blocks import EmbedBlock
-from wagtail.core.blocks import StreamBlock
 
 
 class InlineVideoBlock(StructBlock):
+    """Video block settings"""
     video = EmbedBlock(
         label='Vidéo',
         help_text="Insérer une url comme par ex. https://youtu.be/yRmZ6WUfoOc"
@@ -33,3 +33,6 @@ class InlineVideoBlock(StructBlock):
     class Meta:
         icon = 'media'
         label = "Vidéo intégrée"
+
+
+

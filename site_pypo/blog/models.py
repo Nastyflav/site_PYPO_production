@@ -19,7 +19,7 @@ from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
 
-from blog.blocks import BaseArticleStreamBlock
+from blog.blocks import InlineTextBlock, InlineVideoBlock
 
 
 class BlogIndexPage(Page):
@@ -74,11 +74,10 @@ class BlogPage(Page):
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
-    video = StreamField(
-       BaseArticleStreamBlock(),
-       verbose_name="Vidéos",
-       blank=True
-   )
+    page_bottom = StreamField([
+        ('video', InlineVideoBlock()),
+        ('text', InlineTextBlock())
+    ], blank=True)
 
     def main_image(self):
         gallery_item = self.gallery_images.first()
@@ -100,7 +99,7 @@ class BlogPage(Page):
         FieldPanel('intro'),
         FieldPanel('body'),
         InlinePanel('gallery_images', label="Images"),
-        StreamFieldPanel('video'),
+        StreamFieldPanel('page_bottom'),
     ]
 
     class Meta:
