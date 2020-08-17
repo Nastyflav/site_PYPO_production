@@ -1,3 +1,4 @@
+//Video blocks position //
 .block-video-right{
     float: right;
     margin-left: 20px;
@@ -14,6 +15,7 @@
     overflow: hidden;
 }
 
+// Video blocks size
 .block-video-small{
     width: 240px;
     height: auto;
@@ -35,6 +37,44 @@
     max-width: 80%;
     border: solid $primary 1px;
     border-radius: 2rem;
+}
+
+// Text blocks position //
+.block-text-right{
+    float: right;
+    margin-left: 20px;
+}
+
+.block-text-left{
+    float: left;
+    margin-right: 20px;
+}
+
+.block-text-center{
+    padding: 4rem 0;
+    display: grid;
+    margin: auto;
+    overflow: hidden;
+}
+
+
+// Text blocks size //
+.block-text-small{
+    width: 240px;
+    height: auto;
+}
+
+.block-text-medium{
+    padding: 4rem 0;
+    width: 480px;
+    height: auto;
+    max-width: 100%;
+}
+
+.block-text-large{
+    width: 2000px;
+    height: auto;
+    max-width: 80%;
 }
 
 //To make embed objects responsive//

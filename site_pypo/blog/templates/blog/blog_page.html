@@ -6,14 +6,13 @@
 
 {% block content %}
 
-<section>
+<section class="blog-top-section">
     <div class="container">
-        <div class="text-center">
-            <h1>{{ page.title }}</h1>
-        </div>
-        <div class="text-right">
-            <p class="meta">{{ page.date }}</p>
-        </div>
+        <h2 class="section-heading text-uppercase">{{ page.title }}</h2>
+        <h5 class="section-subheading text-right">
+            {{ page.date }}
+        </h5>
+        <br>
         <div class="row">
             <div class="col-lg-4">
                 {% for item in page.gallery_images.all %}
@@ -23,9 +22,9 @@
                 {% endfor %}
             </div>
             <div class="col-lg-8">
-                <div class="intro">{{ page.intro }}</div>
-                <div class="text-blog" style="color: black;">
-                    {{ page.body|richtext }}
+                <div class="intro-blog">{{ page.intro }}</div>
+                <div class="text-blog">
+                    <p>{{ page.body|richtext }}</p>
                 </div>
             </div>
         </div>

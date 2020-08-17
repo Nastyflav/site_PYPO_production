@@ -41,10 +41,6 @@ class InlineTextBlock(StructBlock):
     """Text block settings"""
     title = CharBlock(required=True, label='Type de recommandation')
     richtext_content = RichTextBlock(required=True)
-    text_color = ChoiceBlock(required=False, choices=[
-        ('white', 'Blanc'),
-        ('black', 'Noir'),
-    ], default='black')
     position = ChoiceBlock(
         required=False,
         choices=[('right', 'Droite'), ('left', 'Gauche'), ('center', 'Centre')],

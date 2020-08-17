@@ -1,5 +1,48 @@
-.blog-bottom-section {
+.blog-top-section {
     padding: 2rem 0;
+    h1.section-heading {
+        font-size: 3rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: $text;
+    }
+    h2.section-heading {
+        font-size: 2.5rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: $back;
+    }
+    h3.section-subheading {
+        font-size: 1rem;
+        font-weight: 400;
+        font-style: italic;
+        font-family: $subheadings-font-family;
+        margin-bottom: 4rem;
+        color: $text;
+    }
+    h4.section-subheading {
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: $subheadings-font-family;
+        margin-bottom: 0;
+        color: $text;
+    }
+    h5.section-subheading {
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: $subheadings-font-family;
+        margin-bottom: 0;
+        color: $primary;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    section {
+        padding: 2rem 0;
+    }
+}
+
+.blog-bottom-section {
     h1.section-heading {
         font-size: 3rem;
         margin-top: 0;
@@ -32,12 +75,21 @@
         font-weight: 700;
         font-family: $subheadings-font-family;
         margin-bottom: 0;
-        color: $primary;
+        color: $secondary;
     }
 }
 
 @include media-breakpoint-up(md) {
     section {
-        padding: 9rem 0;
+        padding: 2rem 0;
     }
+}
+
+.intro-blog {
+    color: $secondary;
+    font-style: italic;
+}
+
+.text-blog p {
+    color: $back;
 }
