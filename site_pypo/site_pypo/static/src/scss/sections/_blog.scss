@@ -1,0 +1,10 @@
+.blog-section {
+    overflow-x: hidden;
+    background-color: white;
+    .p{
+        color: $back;
+        p{
+            color: $back;
+        }
+    }
+}

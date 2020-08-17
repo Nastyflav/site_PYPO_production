@@ -1,16 +1,16 @@
-// Styling for the navbar
-#mainNav {
+// Styling for the blog navbar
+#blogNav {
     padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: transparent;
     &.navbar-shrink {
-        background-color: $back;
+        background-color: $text;
     }
     .navbar-toggler {
         padding: 0.75rem;
         font-family: $headings-font-family;
         font-size: 0.75rem;
-        color: $white;
+        color: $secondary;
         text-transform: uppercase;
         background-color: $primary;
         border: 0;
@@ -31,7 +31,7 @@
             .nav-link {
                 font-family: $headings-font-family;
                 font-size: 0.95rem;
-                color: $white;
+                color: $secondary;
                 letter-spacing: $headings-letter-spacing;
                 &.active,
                 &:hover {
@@ -44,7 +44,7 @@
 
 // Responsive styling for screen width equal to or greater than the large breakpoint
 @include media-breakpoint-up(lg) {
-    #mainNav {
+    #blogNav {
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;
         border: none;
@@ -63,7 +63,7 @@
         &.navbar-shrink {
             padding-top: 1rem;
             padding-bottom: 1rem;
-            background-color: $back;
+            background-color: $text;
             .navbar-brand {
                 font-size: 1.25em;
                 svg,

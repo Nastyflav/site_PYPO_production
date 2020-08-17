@@ -4,6 +4,11 @@ body {
     background-color: $back;
 }
 
+body#blog {
+    overflow-x: hidden;
+    background-color: transparent;
+}
+
 p {
     line-height: 1.75;
     color: $text;
