@@ -19,7 +19,8 @@ class InlineVideoBlock(StructBlock):
     )
     position = ChoiceBlock(
         required=False,
-        choices=[('right', 'Droite'), ('left', 'Gauche'), ('center', 'Centre')],
+        choices=[
+            ('right', 'Droite'), ('left', 'Gauche'), ('center', 'Centre')],
         default='right',
         label='Position'
     )
@@ -33,6 +34,3 @@ class InlineVideoBlock(StructBlock):
     class Meta:
         icon = 'media'
         label = "Vidéo intégrée"
-
-
-

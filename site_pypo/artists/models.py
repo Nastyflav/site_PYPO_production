@@ -45,7 +45,7 @@ class ArtistsCatalogPage(Page):
         context = super().get_context(request)
         context['artists_pages'] = self.artists_pages
         return context
- 
+
     content_panels = Page.content_panels + [
         FieldPanel('intro'),
     ]
@@ -58,7 +58,7 @@ class ArtistPage(Page):
     """All the fields to complete when editing an artist page"""
     subpage_types = []
     parent_page_types = ['ArtistsCatalogPage']
-    
+
     style = models.CharField(max_length=100, verbose_name='Style')
     body = RichTextField(blank=True, verbose_name='Biographie')
     video = StreamField([
