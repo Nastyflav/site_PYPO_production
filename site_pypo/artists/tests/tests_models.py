@@ -7,8 +7,6 @@ Licence: `GNU GPL v3` GNU GPL v3: http://www.gnu.org/licenses/
 
 """
 
-from django.test import TestCase
-
 from wagtail.tests.utils import WagtailPageTests
 
 from artists.models import ArtistPage, ArtistsCatalogPage

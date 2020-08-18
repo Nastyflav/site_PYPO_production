@@ -27,6 +27,7 @@ class FormField(AbstractFormField):
 
 class ContactPage(AbstractEmailForm):
     """Model of the contact page"""
+    subpage_types = []
     parent_page_types = ['home.HomePage']
 
     intro = RichTextField(blank=True)
