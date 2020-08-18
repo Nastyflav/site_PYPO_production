@@ -31,8 +31,6 @@ class BlogIndexPage(Page):
     subpage_types = ['BlogPage']
     parent_page_types = ['home.HomePage']
 
-    intro = RichTextField(blank=True)
-
     def get_context(self, request):
         """
         Update context to include only published posts,
@@ -44,7 +42,6 @@ class BlogIndexPage(Page):
         return context
 
     content_panels = Page.content_panels + [
-        FieldPanel('intro'),
     ]
 
     class Meta:

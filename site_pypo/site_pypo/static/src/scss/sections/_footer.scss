@@ -3,7 +3,14 @@
     text-align: center;
     font-size: 0.9rem;
     font-family: $headings-font-family;
-    background-color: transparent;
+    background-color: $back;
+}
+
+.footer-blog {
+    text-align: center;
+    font-size: 0.9rem;
+    font-family: $headings-font-family;
+    background-color: $text;
 }
 
 .text-copyright {

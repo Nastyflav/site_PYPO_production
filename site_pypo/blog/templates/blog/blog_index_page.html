@@ -6,22 +6,29 @@
 
 {% block content %}
 
-<section class="blog-section">
-    <h1>{{ page.title }}</h1>
-
-    <div class="intro">{{ page.intro|richtext }}</div>
-
-    {% for post in blog_pages %}
-    {% with post=post.specific %}
-        <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
-
-        {% with post.main_image as main_image %}
-            {% if main_image %}{% image main_image fill-160x100 %}{% endif %}
-        {% endwith %}
-
-        <p>{{ post.intro }}</p>
-    {% endwith %}
-{% endfor %}
+<section class="page-section" id="portfolio">
+    <div class="container">
+        <div class="row">
+            {% for post in blog_pages %}
+            {% with post=post.specific %}
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="portfolio-item">
+                    <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+                </div>
+                {% with post.main_image as main_image %}
+                <div class="text-center">
+                    {% if main_image %}{% image main_image fill-300x220 %}{% endif %}
+                </div>
+                {% endwith %}
+                <br>
+                <div class="portfolio-caption">
+                    <div class="portfolio-caption-subheading text-muted text-center">{{ post.intro }}</div>
+                </div>
+            </div>
+            {% endwith %}
+            {% endfor %}
+        </div>
+    </div>
 </section>
 
 {% endblock %}

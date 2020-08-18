@@ -93,3 +93,13 @@
 .text-blog p {
     color: $back;
 }
+
+.blog-section {
+    padding: 9rem 0;
+}
+
+@include media-breakpoint-up(md) {
+    section {
+        padding: 9rem 0;
+    }
+}
