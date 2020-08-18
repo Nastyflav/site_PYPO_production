@@ -28,22 +28,23 @@
                 </div>
             </div>
         </div>
+    </div>
 </section>
 
 <!-- Page bottom-->
 {% if page.page_bottom %}
 <section class="blog-bottom-section">
         <div class="container">
-            {% include "blog/blog_bottom_blocks.html" %}
+            <div class="row">
+                {% include "blog/blog_bottom_blocks.html" %}
+            </div>
+            <div class="row">
+                <div class="col-lg-11 text-right">
+                    <p><a href="{{ page.get_parent.url }}">Retour au blog</a></p>
+                </div>
+            </div>
         </div>
 </section>
 {% endif %}
-
-<!-- Return to blog index-->
-<div class="row">
-    <div class="col-lg-11 text-right">
-        <p><a href="{{ page.get_parent.url }}">Retour au blog</a></p>
-    </div>
-</div>
 
 {% endblock %}

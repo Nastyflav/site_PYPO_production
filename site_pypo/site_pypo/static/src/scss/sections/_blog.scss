@@ -1,5 +1,5 @@
 .blog-top-section {
-    padding: 2rem 0;
+    padding: 9rem 0;
     h1.section-heading {
         font-size: 3rem;
         margin-top: 0;
@@ -43,6 +43,7 @@
 }
 
 .blog-bottom-section {
+    padding: 2rem 0;
     h1.section-heading {
         font-size: 3rem;
         margin-top: 0;
@@ -100,6 +101,6 @@
 
 @include media-breakpoint-up(md) {
     section {
-        padding: 9rem 0;
+        padding: 2rem 0;
     }
 }

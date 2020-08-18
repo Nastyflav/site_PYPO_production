@@ -10916,7 +10916,7 @@ header.artist-banner .artist-banner-heading {
   }
 }
 .blog-top-section {
-  padding: 2rem 0;
+  padding: 9rem 0;
 }
 .blog-top-section h1.section-heading {
   font-size: 3rem;
@@ -10957,6 +10957,9 @@ header.artist-banner .artist-banner-heading {
   section {
     padding: 2rem 0;
   }
+}
+.blog-bottom-section {
+  padding: 2rem 0;
 }
 .blog-bottom-section h1.section-heading {
   font-size: 3rem;
@@ -11013,6 +11016,6 @@ header.artist-banner .artist-banner-heading {
 
 @media (min-width: 768px) {
   section {
-    padding: 9rem 0;
+    padding: 2rem 0;
   }
 }
