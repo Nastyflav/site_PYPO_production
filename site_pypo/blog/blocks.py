@@ -7,7 +7,11 @@ Licence: `GNU GPL v3` GNU GPL v3: http://www.gnu.org/licenses/
 
 """
 
-from wagtail.core.blocks import StructBlock, ChoiceBlock, RichTextBlock, CharBlock
+from wagtail.core.blocks import (
+                                 StructBlock,
+                                 ChoiceBlock,
+                                 RichTextBlock,
+                                 CharBlock)
 from wagtail.embeds.blocks import EmbedBlock
 
 
@@ -21,13 +25,15 @@ class InlineVideoBlock(StructBlock):
     )
     position = ChoiceBlock(
         required=False,
-        choices=[('right', 'Droite'), ('left', 'Gauche'), ('center', 'Centre')],
+        choices=[
+            ('right', 'Droite'), ('left', 'Gauche'), ('center', 'Centre')],
         default='right',
         label='Position'
     )
     size = ChoiceBlock(
         required=False,
-        choices=[('small', 'Petit'), ('medium', 'Médium'), ('large', 'Grand')],
+        choices=[
+            ('small', 'Petit'), ('medium', 'Médium'), ('large', 'Grand')],
         default='small',
         label='Taille'
     )
@@ -43,13 +49,15 @@ class InlineTextBlock(StructBlock):
     richtext_content = RichTextBlock(required=True)
     position = ChoiceBlock(
         required=False,
-        choices=[('right', 'Droite'), ('left', 'Gauche'), ('center', 'Centre')],
+        choices=[
+            ('right', 'Droite'), ('left', 'Gauche'), ('center', 'Centre')],
         default='right',
         label='Position'
     )
     size = ChoiceBlock(
         required=False,
-        choices=[('small', 'Petit'), ('medium', 'Médium'), ('large', 'Grand')],
+        choices=[
+            ('small', 'Petit'), ('medium', 'Médium'), ('large', 'Grand')],
         default='small',
         label='Taille'
     )

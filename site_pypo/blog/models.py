@@ -15,7 +15,11 @@ from taggit.models import TaggedItemBase
 
 from wagtail.core.models import Page, Orderable
 from wagtail.core.fields import RichTextField, StreamField
-from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, StreamFieldPanel
+from wagtail.admin.edit_handlers import (
+                                         FieldPanel,
+                                         InlinePanel,
+                                         MultiFieldPanel,
+                                         StreamFieldPanel)
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
 
@@ -30,7 +34,10 @@ class BlogIndexPage(Page):
     intro = RichTextField(blank=True)
 
     def get_context(self, request):
-        """Update context to include only published posts, ordered by reverse-chron"""
+        """
+        Update context to include only published posts,
+        ordered by reverse-chron
+        """
         context = super().get_context(request)
         blog_pages = self.get_children().live().order_by('-first_published_at')
         context['blog_pages'] = blog_pages
@@ -108,7 +115,8 @@ class BlogPage(Page):
 
 class BlogPageGalleryImage(Orderable):
     """Allows to integrate images into a blog post"""
-    page = ParentalKey(BlogPage, on_delete=models.CASCADE, related_name='gallery_images')
+    page = ParentalKey(
+        BlogPage, on_delete=models.CASCADE, related_name='gallery_images')
     image = models.ForeignKey(
         'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
     )
