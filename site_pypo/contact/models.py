@@ -44,3 +44,7 @@ class ContactPage(AbstractEmailForm):
             FieldPanel('subject'),
         ], heading="Paramètres email"),
     ]
+
+    def get_form_fields(self):
+        """To get every custom fields for the template"""
+        return self.form_fields.all()
