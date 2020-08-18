@@ -9,7 +9,7 @@ Licence: `GNU GPL v3` GNU GPL v3: http://www.gnu.org/licenses/
 
 from wagtail.tests.utils import WagtailPageTests
 
-from contact.models import ContactPage 
+from contact.models import ContactPage
 from home.models import HomePage
 
 
