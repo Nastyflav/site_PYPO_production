@@ -10249,36 +10249,69 @@ img::-moz-selection {
   border-radius: 2rem;
 }
 
-.block-text-right {
+.blog-block-video-right {
   float: right;
   margin-left: 20px;
 }
 
-.block-text-left {
+.blog-block-video-left {
   float: left;
   margin-right: 20px;
 }
 
-.block-text-center {
+.blog-block-video-center {
+  display: grid;
+  margin: auto;
+  overflow: hidden;
+}
+
+.blog-block-video-small {
+  width: 240px;
+  height: auto;
+}
+
+.blog-block-video-medium {
+  width: 480px;
+  height: auto;
+  max-width: 100%;
+}
+
+.blog-block-video-large {
+  width: 2000px;
+  height: auto;
+  max-width: 80%;
+}
+
+.blog-block-text-right {
+  float: right;
+  margin-left: 20px;
+}
+
+.blog-block-text-left {
+  float: left;
+  margin-right: 20px;
+}
+
+.blog-block-text-center {
   padding: 4rem 0;
   display: grid;
   margin: auto;
   overflow: hidden;
 }
 
-.block-text-small {
+.blog-block-text-small {
   width: 240px;
   height: auto;
 }
 
-.block-text-medium {
+.blog-block-text-medium {
   padding: 4rem 0;
   width: 480px;
   height: auto;
   max-width: 100%;
 }
 
-.block-text-large {
+.blog-block-text-large {
   width: 2000px;
   height: auto;
   max-width: 80%;
@@ -10916,7 +10949,8 @@ header.artist-banner .artist-banner-heading {
   }
 }
 .blog-top-section {
-  padding: 9rem 0;
+  -webkit-padding-before: 9rem;
+          padding-block-start: 9rem;
 }
 .blog-top-section h1.section-heading {
   font-size: 3rem;

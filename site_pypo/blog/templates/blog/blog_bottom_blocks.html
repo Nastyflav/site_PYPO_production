@@ -3,17 +3,17 @@
 {% for block in page.page_bottom %}
 
     {% if block.block_type == 'video' %}
-        <div class="block-{{ block.block_type }}-{{ block.value.position }} block-{{ block.block_type }}-{{ block.value.size }}">
+        <div class="blog-block-{{ block.block_type }}-{{ block.value.position }} blog-block-{{ block.block_type }}-{{ block.value.size }}">
             <div class="text-blog">
-                {% include_block block.value.title %}
+                <h2>{% include_block block.value.title %}</h2>
                 <p>{{ block.value.richtext_content|richtext }}</p>
             </div>
             {{ block.value.video }}
         </div>
     {% else %}
-        <div class="block-{{ block.block_type }}-{{ block.value.position }} block-{{ block.block_type }}-{{ block.value.size }}">
+        <div class="blog-block-{{ block.block_type }}-{{ block.value.position }} blog-block-{{ block.block_type }}-{{ block.value.size }}">
             <div class="text-blog">
-                {% include_block block.value.title %}
+                <h2>{% include_block block.value.title %}</h2>
                 <p>{{ block.value.richtext_content|richtext }}</p>
             </div>
         </div>
