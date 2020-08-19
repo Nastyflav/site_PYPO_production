@@ -32,13 +32,13 @@
 </section>
 
 <!-- Agenda-->
-<section class="page-section" id="agenda">
+<section class="agenda-section">
     <div class="container">
         <div class="text-left">
             <h2 class="section-heading text-uppercase">Agenda</h2>
             <p>{{page.agenda_text|richtext}}</p>
         </div>
-        {% for artist in page.artists_infos.all %}
+        {% for artist in page.get_artists_infos.all %}
         {% for gig in artist.gigs.all %}
         <div class="row agenda-line">
             <div class="col-lg-2 text-center agenda-date">

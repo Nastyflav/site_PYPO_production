@@ -44,7 +44,8 @@ class HomePage(Page):
     ]
 
     @property
-    def artists_infos(self):
+    def get_artists_infos(self):
+        "Returns all the artists informations"
         return ArtistPage.objects.live()
 
     class Meta:
