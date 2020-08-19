@@ -1,5 +1,6 @@
-.artist-section {
+.agenda-section {
     padding: 2rem 0;
+    background-color: $back;
     h1.section-heading {
         font-size: 3rem;
         margin-top: 0;
@@ -34,10 +35,31 @@
         margin-bottom: 0;
         color: $primary;
     }
-}
-
-@include media-breakpoint-up(md) {
-    section {
-        padding: 9rem 0;
+    .agenda-line {
+        align-self: center;
+        border-color: $primary;
+        border-radius: 2rem;
+        padding-top: 1rem;
+    }
+    
+    .agenda-date {
+        background-color: $primary;
+        align-self: center;
+        border-radius: 1rem;
+        color: $back;
+    }
+    
+    .agenda-city {
+        align-self: center;
+        color: $text;
+    }
+    
+    .agenda-location {
+        align-self: center;
+        color: $text;
+    }
+    .agenda-artist {
+        align-self: center;
+        color: $text;
     }
 }

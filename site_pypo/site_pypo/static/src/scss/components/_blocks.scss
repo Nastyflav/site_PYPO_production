@@ -1,7 +1,7 @@
 //Video blocks position //
 .block-video-right{
     float: right;
-    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .block-video-left{
@@ -20,7 +20,6 @@
     width: 240px;
     height: auto;
     border: solid $primary 1px;
-    border-radius: 2rem;
 }
 
 .block-video-medium{
@@ -28,7 +27,7 @@
     height: auto;
     max-width: 100%;
     border: solid $primary 1px;
-    border-radius: 2rem;
+    
 }
 
 .block-video-large{
@@ -36,7 +35,6 @@
     height: auto;
     max-width: 80%;
     border: solid $primary 1px;
-    border-radius: 2rem;
 }
 
 //Blog video blocks position //

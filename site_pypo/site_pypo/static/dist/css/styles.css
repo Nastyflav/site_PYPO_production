@@ -10209,7 +10209,7 @@ img::-moz-selection {
 }
 .block-video-right {
   float: right;
-  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .block-video-left {
@@ -10227,7 +10227,6 @@ img::-moz-selection {
   width: 240px;
   height: auto;
   border: solid #ffc601 1px;
-  border-radius: 2rem;
 }
 
 .block-video-medium {
@@ -10235,7 +10234,6 @@ img::-moz-selection {
   height: auto;
   max-width: 100%;
   border: solid #ffc601 1px;
-  border-radius: 2rem;
 }
 
 .block-video-large {
@@ -10243,7 +10241,6 @@ img::-moz-selection {
   height: auto;
   max-width: 80%;
   border: solid #ffc601 1px;
-  border-radius: 2rem;
 }
 
 .blog-block-video-right {
@@ -10908,34 +10905,6 @@ header.artist-banner .artist-banner-heading {
     padding: 9rem 0;
   }
 }
-#agenda {
-  background-color: black;
-}
-#agenda .agenda-line {
-  align-self: center;
-  border-color: #ffc601;
-  border-radius: 2rem;
-  padding-top: 1rem;
-}
-#agenda .agenda-date {
-  background-color: #ffc601;
-  align-self: center;
-  border-radius: 1rem;
-  color: black;
-}
-#agenda .agenda-city {
-  align-self: center;
-  color: white;
-}
-#agenda .agenda-location {
-  align-self: center;
-  color: white;
-}
-#agenda .agenda-artist {
-  align-self: center;
-  color: white;
-}
-
 .video-section {
   padding: 2rem 0;
 }
@@ -11049,4 +11018,66 @@ header.artist-banner .artist-banner-heading {
   section {
     padding: 2rem 0;
   }
+}
+.agenda-section {
+  padding: 2rem 0;
+  background-color: black;
+}
+.agenda-section h1.section-heading {
+  font-size: 3rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: white;
+}
+.agenda-section h2.section-heading {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #ffc601;
+}
+.agenda-section h3.section-subheading {
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin-bottom: 4rem;
+  color: white;
+}
+.agenda-section h4.section-subheading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin-bottom: 0;
+  color: white;
+}
+.agenda-section h5.section-subheading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin-bottom: 0;
+  color: #ffc601;
+}
+.agenda-section .agenda-line {
+  align-self: center;
+  border-color: #ffc601;
+  border-radius: 2rem;
+  padding-top: 1rem;
+}
+.agenda-section .agenda-date {
+  background-color: #ffc601;
+  align-self: center;
+  border-radius: 1rem;
+  color: black;
+}
+.agenda-section .agenda-city {
+  align-self: center;
+  color: white;
+}
+.agenda-section .agenda-location {
+  align-self: center;
+  color: white;
+}
+.agenda-section .agenda-artist {
+  align-self: center;
+  color: white;
 }

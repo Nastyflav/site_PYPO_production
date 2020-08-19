@@ -55,20 +55,19 @@
 {% if page.video %}
 <section class="video-section">
         <div class="container">
-            {% include "artists/block_video_embed.html" %}
+            <div class="row">
+                {% include "artists/block_video_embed.html" %}
+            </div>
         </div>
 </section>
 {% endif %}
 
 <!-- Agenda-->
-<section class="page-section" id="agenda">
+<section class="agenda-section">
     <div class="container">
-        <div class="text-left">
-            <h2 class="section-heading text-uppercase">Les prochaines dates</h2>
-            <br>
-            <hr>
-            <br>
-        </div>
+        <h2 class="section-heading text-uppercase">Les prochaines dates</h2>
+        <br>
+        <br>
         {% for gig in page.gigs.all %}
         <div class="row agenda-line">
             <div class="col-lg-4 text-center agenda-date">
