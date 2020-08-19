@@ -26,6 +26,7 @@ site_pypo/home/ index, terms, team and generic html pages\
 site_pypo/blog/ blog index and articles\
 site_pypo/events/ events Django models\
 site_pypo/artists/ artists Django models\
+site_pypo/contact/ contact Django models and form\
 site_pypo/media/ all the images or videos integrated in the project\
 site_pypo/tests/ functional tests with Selenium and browsers
 
