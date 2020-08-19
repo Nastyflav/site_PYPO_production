@@ -10192,11 +10192,8 @@ img::-moz-selection {
   }
 }
 .spotify-embed-block {
-  height: 250px;
-  width: 300px;
   color: #ffc601;
   background: black;
-  background: linear-gradient(to left, #ffc601, #6c6869);
 }
 
 @media only screen and (max-width: 479px), only screen and (max-width: 768px) {
