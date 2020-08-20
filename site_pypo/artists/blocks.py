@@ -21,13 +21,13 @@ class InlineVideoBlock(StructBlock):
         required=False,
         choices=[
             ('right', 'Droite'), ('left', 'Gauche'), ('center', 'Centre')],
-        default='right',
+        default='left',
         label='Position'
     )
     size = ChoiceBlock(
         required=False,
         choices=[('small', 'Petit'), ('medium', 'Médium'), ('large', 'Grand')],
-        default='small',
+        default='medium',
         label='Taille'
     )
 

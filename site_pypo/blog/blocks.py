@@ -27,14 +27,14 @@ class InlineVideoBlock(StructBlock):
         required=False,
         choices=[
             ('right', 'Droite'), ('left', 'Gauche'), ('center', 'Centre')],
-        default='right',
+        default='left',
         label='Position'
     )
     size = ChoiceBlock(
         required=False,
         choices=[
             ('small', 'Petit'), ('medium', 'Médium'), ('large', 'Grand')],
-        default='small',
+        default='medium',
         label='Taille'
     )
 
@@ -46,22 +46,22 @@ class InlineVideoBlock(StructBlock):
 class InlineTextBlock(StructBlock):
     """Text block settings"""
     title = CharBlock(required=True, label='Type de recommandation')
-    richtext_content = RichTextBlock(required=True)
+    richtext_content = RichTextBlock(required=True, label='Description vidéo')
     position = ChoiceBlock(
         required=False,
         choices=[
             ('right', 'Droite'), ('left', 'Gauche'), ('center', 'Centre')],
-        default='right',
+        default='left',
         label='Position'
     )
     size = ChoiceBlock(
         required=False,
         choices=[
             ('small', 'Petit'), ('medium', 'Médium'), ('large', 'Grand')],
-        default='small',
+        default='medium',
         label='Taille'
     )
 
     class Meta:
         icon = 'edit'
-        label = "Bloc texte recommandations"
+        label = "Recommandations texte"
