@@ -28,7 +28,6 @@ site_pypo/events/ events Django models\
 site_pypo/artists/ artists Django models\
 site_pypo/contact/ contact Django models and form\
 site_pypo/media/ all the images or videos integrated in the project\
-site_pypo/tests/ functional tests with Selenium and browsers
 
 # Tests :
 To launch tests `python manage.py test`\

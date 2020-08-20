@@ -28,7 +28,7 @@ from blog.blocks import InlineTextBlock, InlineVideoBlock
 
 class BlogIndexPage(Page):
     """Model of the blog index"""
-    subpage_types = ['BlogPage']
+    subpage_types = ['BlogPage', 'BlogTagIndexPage']
     parent_page_types = ['home.HomePage']
 
     def get_context(self, request):
@@ -59,6 +59,9 @@ class BlogPageTag(TaggedItemBase):
 
 class BlogTagIndexPage(Page):
     """Make a index for all the blog tags"""
+    subpage_types = []
+    parent_page_types = ['BlogIndexPage']
+
     def get_context(self, request):
         # Filter by tag
         tag = request.GET.get('tag')
