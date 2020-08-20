@@ -10119,7 +10119,7 @@ img::-moz-selection {
 #mainNav {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: transparent;
+  background-color: black;
 }
 #mainNav.navbar-shrink {
   background-color: black;
