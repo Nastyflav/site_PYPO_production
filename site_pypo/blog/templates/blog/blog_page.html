@@ -37,7 +37,14 @@
                 {% include "blog/blog_bottom_blocks.html" %}
             </div>
             <div class="row">
-                <div class="col-lg-11 text-right">
+            {% if page.tags.all.count %}
+                <div class="col-lg-6 text-left">
+                    {% for tag in page.tags.all %}
+                        <a href="{% slugurl 'tags' %}?tag={{ tag }}"><button type="button">{{ tag }}</button></a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+                <div class="col-lg-6 text-right">
                     <p><a href="{{ page.get_parent.url }}">Retour au blog</a></p>
                 </div>
             </div>

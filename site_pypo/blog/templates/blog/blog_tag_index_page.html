@@ -1,25 +1,28 @@
-{% extends "base.html" %}
+{% extends "base_blog.html" %}
 
 {% load wagtailcore_tags %}
 
 {% block content %}
 
-    {% if request.GET.tag|length %}
-        <h4>Showing pages tagged "{{ request.GET.tag }}"</h4>
-    {% endif %}
+<section class="blog-top-section">
+    <div class="container">
+        <h2 class="section-heading text-uppercase">{{ page.title }}</h2>
+        {% if request.GET.tag|length %}
+            <h4>Voici les billets du blog contenant le tag "{{ request.GET.tag }}"</h4>
+        {% endif %}
 
-    {% for blogpage in blogpages %}
-
+        {% for blogpage in blogpages %}
           <p>
               <strong><a href="{% pageurl blogpage %}">{{ blogpage.title }}</a></strong><br />
               <small>Revised: {{ blogpage.latest_revision_created_at }}</small><br />
               {% if blogpage.author %}
                 <p>By {{ blogpage.author.profile }}</p>
               {% endif %}
-          </p>
-
-    {% empty %}
-        No pages found with that tag.
-    {% endfor %}
+          </p>          
+        {% empty %}
+            Aucun billet du blog ne contient ce tag
+        {% endfor %}
+    </div>
+</section>
 
 {% endblock %}
