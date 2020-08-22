@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load static wagtailcore_tags wagtailimages_tags %}
+{% load static wagtailcore_tags wagtailimages_tags custom_tags %}
 
 {% block body_class %}template-eventsindexpage{% endblock %}
 
@@ -14,7 +14,7 @@
             <br>
         </div>
         <div class="row">
-            {% for member in page.members.all %}
+            {% for member in page.members.all|sort_by:'?' %}
             <div class="col-lg-6">
                 <div class="team-member">
                     {% image member.image original as image %}
