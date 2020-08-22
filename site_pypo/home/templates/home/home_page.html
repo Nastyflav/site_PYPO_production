@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load static wagtailimages_tags wagtailcore_tags widget_tweaks %}
+{% load static wagtailimages_tags wagtailcore_tags widget_tweaks custom_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
 
@@ -39,7 +39,7 @@
             <p>{{page.agenda_text|richtext}}</p>
         </div>
         {% for artist in page.get_artists_infos.all %}
-        {% for gig in artist.gigs.all %}
+        {% for gig in artist.gigs.all|sort_by:'date' %}
         <div class="row agenda-line">
             <div class="col-lg-2 text-center agenda-date">
                 {{ gig.date }}
