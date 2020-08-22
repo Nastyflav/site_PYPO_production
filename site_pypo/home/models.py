@@ -46,7 +46,7 @@ class HomePage(Page):
     @property
     def get_artists_infos(self):
         "Returns all the artists informations"
-        return ArtistPage.objects.live()
+        return ArtistPage.objects.specific()
 
     class Meta:
         verbose_name = "Accueil"
