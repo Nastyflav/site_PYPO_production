@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load static wagtailcore_tags wagtailimages_tags wagtailembeds_tags %}
+{% load static wagtailcore_tags wagtailimages_tags wagtailembeds_tags custom_tags %}
 
 {% block body_class %}template-artistpage{% endblock %}
 
@@ -68,7 +68,7 @@
         <h2 class="section-heading text-uppercase">Les prochaines dates</h2>
         <br>
         <br>
-        {% for gig in page.gigs.all %}
+        {% for gig in page.gigs.all|sort_by:'date' %}
         <div class="row agenda-line">
             <div class="col-lg-4 text-center agenda-date">
                 {{ gig.date }}
